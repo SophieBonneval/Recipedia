@@ -1,19 +1,13 @@
 import { render, screen, cleanup } from "@testing-library/react";
+import React from "react";
 import App from "./App";
 
 afterEach(() => {
   cleanup();
 });
 
-test("renders greeting to the world", () => {
+test(".nav element to be on the page", () => {
   render(<App />);
-  const greeting = screen.getByText(/Hello world/i);
-  expect(greeting).toBeInTheDocument();
-});
-
-test("renders greeting to the world 2", () => {
-  render(<App />);
-  const greeting = screen.getByTestId("test-greeting");
-  expect(greeting).toBeInTheDocument();
-  expect(greeting).toHaveTextContent("Hello");
+  const testApp = screen.getByTestId("test-app");
+  expect(testApp).toContainHTML("</nav>");
 });
