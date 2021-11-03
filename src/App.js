@@ -1,14 +1,14 @@
 import React from 'react'
 import "./App.css";
 import Header from "./header/Header";
-import Api from './api/Api'
+import Searchbar from './searchbar/Searchbar'
 
 
 function App() {
   return (
     <div className="App" data-testid="test-greeting">
       <Header />
-      <Api />
+      <Searchbar />
       <p>Hello world</p>
     </div>
   );

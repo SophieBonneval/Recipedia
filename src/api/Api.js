@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 
 function Api() {
-    const [recipes, setRecipes] = useState({});
+    const [recipeData, setRecipeData] = useState({});
 
     useEffect(() => {
         const url = `https://api.spoonacular.com/recipes/search?apiKey=${process.env.REACT_APP_API_KEY}&query=chicken&number=20`;
@@ -11,7 +11,7 @@ function Api() {
                 const response = await fetch(url);
                 const json = await response.json();
                 console.log(json);
-                setRecipes(json);
+                setRecipeData(json);
             } catch (error) {
                 console.log("error", error);
             }
@@ -21,7 +21,7 @@ function Api() {
     }, []);
   return (
     <div>
-    {console.log(recipes)}
+    {console.log(recipeData)}
     </div>
   )
 }
