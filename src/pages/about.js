@@ -1,9 +1,9 @@
-import React from "react";
-import "./index.css";
+import React from 'react';
+import './index.css';
 
 const About = () => {
   return (
-    <div className="container">
+    <div className='container'>
       <h1>About</h1>
     </div>
   );
