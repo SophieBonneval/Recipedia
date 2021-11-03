@@ -12,12 +12,3 @@ test('Displays credits to team members', () => {
     screen.getByText('Created by Jake, Keldra, Amanda, Boris and Sophie')
   ).toBeInTheDocument();
 });
-
-test('should navigate to Github repo when link is clicked', () => {
-  render(<Footer />);
-
-  expect(getByTestId('test-link-repo')).toHaveAttribute(
-    'href',
-    'https://github.com/Maldorana/Recipedia'
-  );
-});

@@ -1,28 +1,30 @@
 import './App.css';
-import React from 'react';
-import Navbar from './components/Navbar';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer/Footer';
 import Home from './pages';
 import About from './pages/About';
 import ContactUs from './pages/ContactUs';
 import SignIn from './pages/SignIn';
-import Footer from './components/footer/Footer';
+import Sidebar from './components/Sidebar';
 
 function App() {
+  //  const [isOpen, setIsOpen] = useState(false);
+  //
+  //  const toggle = () => {
+  //    setIsOpen(!isOpen);
+  //  };
+
   return (
     <div className='app' data-testid='test-app'>
       <Router>
+        <Sidebar />
         <Navbar />
         <Switch>
           <Route path='/' exact component={Home} />
-        </Switch>
-        <Switch>
           <Route path='/about' component={About} />
-        </Switch>
-        <Switch>
           <Route path='/contact-us' component={ContactUs} />
-        </Switch>
-        <Switch>
           <Route path='/sign-in' component={SignIn} />
         </Switch>
       </Router>

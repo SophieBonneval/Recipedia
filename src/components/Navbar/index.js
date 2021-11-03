@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Nav,
   NavLink,
+  MobileIcon,
   Bars,
   NavMenu,
   NavBtn,
@@ -15,7 +16,9 @@ const Navbar = () => {
         <NavLink to='/'>
           <h1>Recipedia</h1>
         </NavLink>
-        <Bars />
+        <MobileIcon>
+          <Bars />
+        </MobileIcon>
         <NavMenu>
           <NavLink to='/about' activeStyle>
             About

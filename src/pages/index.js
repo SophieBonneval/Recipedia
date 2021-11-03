@@ -1,9 +1,9 @@
-import React from "react";
-import "./index.css";
+import React from 'react';
+import './index.css';
 
 const Home = () => {
   return (
-    <div className="container">
+    <div className='container'>
       <h1>Home</h1>
     </div>
   );

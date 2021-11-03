@@ -1,7 +1,7 @@
 .container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: calc(100vh - 140px);
-  overflow-y: scroll;
+  margin: 20px auto;
+  flex: 1 0 auto;
+  min-height: calc(100vh - 180px);
 }
