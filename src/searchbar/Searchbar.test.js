@@ -9,6 +9,5 @@ test('renders see a searchbar', () => {
 
 test('renders see a searchbar submit button', () => {
   render(<Searchbar />);
-  const linkElement = screen.getByDisplayValue(/Submit/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(screen.getByRole('button')).not.toBeDisabled()
 });

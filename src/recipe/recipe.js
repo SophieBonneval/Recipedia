@@ -19,7 +19,7 @@ const RecipeDisplay = styled.section`
 
     h1 {
         font-family: Third Storey;
-        font-size:1.5rem;
+        font-size:1.2rem;
         color: white;
         position:absolute;
         top:40%;
