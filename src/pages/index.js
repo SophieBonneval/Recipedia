@@ -1,10 +1,11 @@
 import React from 'react';
+import Searchbar from '../components/Searchbar/Searchbar';
 import './index.css';
 
 const Home = () => {
   return (
     <div className='container'>
-      <h1>Home</h1>
+      <Searchbar />
     </div>
   );
 };
