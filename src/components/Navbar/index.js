@@ -20,12 +20,8 @@ const Navbar = () => {
           <Bars />
         </MobileIcon>
         <NavMenu>
-          <NavLink to='/about' activeStyle>
-            About
-          </NavLink>
-          <NavLink to='/contact-us' activeStyle>
-            Contact us
-          </NavLink>
+          <NavLink to='/about'>About</NavLink>
+          <NavLink to='/contact-us'>Contact us</NavLink>
         </NavMenu>
         <NavBtn>
           <NavBtnLink data-testid='test-button-signin' to='/sign-in'>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Recipe from '../Recipe/Recipe';
+import './Searchbar.css';
 
 function Searchbar() {
   const [recipeData, setRecipeData] = useState([]);
@@ -23,11 +24,19 @@ function Searchbar() {
   }
 
   return (
-    <div>
-      <input type='text' placeholder='Search Recipes' onChange={handleChange} />
-      <button onClick={fetchData}>Get Recipes</button>
-      {recipeData &&
-        recipeData.map((recipe) => <Recipe recipe={recipe} key={recipe.id} />)}
+    <div className='search-container'>
+      <div className='search-area'>
+        <input type='text' placeholder='Get Recipes' onChange={handleChange} />
+        <button onClick={fetchData}>Search</button>
+      </div>
+      <div className='row'>
+        <div className='col'>
+          {recipeData &&
+            recipeData.map((recipe) => (
+              <Recipe recipe={recipe} key={recipe.id} />
+            ))}
+        </div>
+      </div>
     </div>
   );
 }

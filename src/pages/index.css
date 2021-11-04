@@ -1,7 +1,4 @@
 .container {
-  display: flex;
-  justify-content: center;
-  margin: 20px auto;
-  flex: 1 0 auto;
+  margin: 20px 0;
   min-height: calc(100vh - 180px);
 }
