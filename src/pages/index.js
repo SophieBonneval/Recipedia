@@ -1,11 +1,11 @@
 import React from 'react';
-import Searchbar from '../components/Searchbar/Searchbar';
+import AllRecipes from '../components/AllRecipes/AllRecipes';
 import './index.css';
 
 const Home = () => {
   return (
     <div className='container'>
-      <Searchbar />
+      <AllRecipes />
     </div>
   );
 };
