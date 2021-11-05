@@ -7,6 +7,7 @@ import Home from './pages';
 import About from './pages/About';
 import ContactUs from './pages/ContactUs';
 import SignIn from './pages/SignIn';
+import LogIn from './pages/LogIn';
 import Sidebar from './components/Sidebar';
 
 function App() {
@@ -26,8 +27,10 @@ function App() {
           <Route path='/about' component={About} />
           <Route path='/contact-us' component={ContactUs} />
           <Route path='/sign-in' component={SignIn} />
+          <Route path='log-in' component={LogIn} />
         </Switch>
       </Router>
+      <button>Log Out</button>
       <Footer />
     </div>
   );

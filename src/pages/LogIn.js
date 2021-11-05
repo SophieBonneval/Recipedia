@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import './index.css';
 import { auth } from '../firebase-config';
 
-function SignIn() {
-  const SignIn = async () => {
-    const [registerEmail, setRegisterEmail] = useState('');
-    const [registerPassword, setRegisterPassword] = useState('');
-
+function Login() {
+  const LogIn = async () => {
+    const [loginEmail, setLoginEmail] = useState('');
+    const [loginPassword, setLoginPassword] = useState('');
     try {
-      const user = await createUserWithEmailAndPassword(
+      const user = await signInWithEmailAndPassword(
         console.log(user),
         auth,
-        registerEmail,
-        registerPassword
+        loginEmail,
+        loginPassword
       );
     } catch (error) {
       console.log(error.message);
@@ -21,24 +20,25 @@ function SignIn() {
 
     return (
       <div className='container'>
-        <h1>Sign in</h1>
+        <h1>Log in</h1>
         <input
           type='email'
           placeholder='Email'
           onChange={(e) => {
-            setRegisterEmail(e.target.value);
+            setLoginEmail(e.target.value);
           }}
         />
         <input
           type='password'
           placeholder='Password'
           onChange={(e) => {
-            setRegisterPassword(e.target.value);
+            setLoginPassword(e.target.value);
           }}
         />
-        <button onClick={SignIn}>Sign In</button>
+        <button>Log In</button>
       </div>
     );
   };
 }
-export default SignIn;
+
+export default LogIn;
