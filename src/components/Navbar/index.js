@@ -22,10 +22,11 @@ const Navbar = () => {
         <NavMenu>
           <NavLink to='/about'>About</NavLink>
           <NavLink to='/contact-us'>Contact us</NavLink>
+          <NavLink to='/log-in'>Log in</NavLink>
         </NavMenu>
         <NavBtn>
           <NavBtnLink data-testid='test-button-signin' to='/sign-in'>
-            Sign In
+            Sign Up
           </NavBtnLink>
         </NavBtn>
       </Nav>
