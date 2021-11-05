@@ -1,44 +1,13 @@
-import React, { useState } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import React from 'react';
 import './index.css';
-import { auth } from '../firebase-config';
+import Authenticate from '../components/Authenticate';
 
-function Login() {
-  const LogIn = async () => {
-    const [loginEmail, setLoginEmail] = useState('');
-    const [loginPassword, setLoginPassword] = useState('');
-    try {
-      const user = await signInWithEmailAndPassword(
-        console.log(user),
-        auth,
-        loginEmail,
-        loginPassword
-      );
-    } catch (error) {
-      console.log(error.message);
-    }
-
-    return (
-      <div className='container'>
-        <h1>Log in</h1>
-        <input
-          type='email'
-          placeholder='Email'
-          onChange={(e) => {
-            setLoginEmail(e.target.value);
-          }}
-        />
-        <input
-          type='password'
-          placeholder='Password'
-          onChange={(e) => {
-            setLoginPassword(e.target.value);
-          }}
-        />
-        <button>Log In</button>
-      </div>
-    );
-  };
-}
+const LogIn = () => {
+  return (
+    <>
+      <Authenticate />
+    </>
+  );
+};
 
 export default LogIn;

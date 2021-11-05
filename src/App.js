@@ -6,9 +6,9 @@ import Footer from './components/Footer/Footer';
 import Home from './pages';
 import About from './pages/About';
 import ContactUs from './pages/ContactUs';
-import SignIn from './pages/SignIn';
-import LogIn from './pages/LogIn';
 import Sidebar from './components/Sidebar';
+import LogIn from './pages/LogIn';
+import SignUp from './pages/SignUp';
 
 function App() {
   //  const [isOpen, setIsOpen] = useState(false);
@@ -26,8 +26,8 @@ function App() {
           <Route path='/' exact component={Home} />
           <Route path='/about' component={About} />
           <Route path='/contact-us' component={ContactUs} />
-          <Route path='/sign-in' component={SignIn} />
-          <Route path='log-in' component={LogIn} />
+          <Route path='/sign-in' component={SignUp} />
+          <Route path='/log-in' component={LogIn} />
         </Switch>
       </Router>
       <button>Log Out</button>
