@@ -7,6 +7,7 @@ const LogIn = () => {
     <div className='container'>
       <h1>Log in</h1>
       <Authenticate />
+      <a href='/sign-up'>Sign up</a>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Nav,
   NavLink,
@@ -8,8 +8,27 @@ import {
   NavBtn,
   NavBtnLink,
 } from './NavbarElements';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { auth } from '../../firebase-config';
 
 const Navbar = () => {
+  const [user, setUser] = useState({});
+
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
+
+  const logout = async () => {
+    await signOut(auth);
+  };
+
+  // <div>
+  //   <h4> User Logged In: </h4>
+  //   {user?.email}
+
+  //   <button onClick={logout}> Sign Out </button>
+  // </div>;
+
   return (
     <>
       <Nav>
@@ -22,12 +41,13 @@ const Navbar = () => {
         <NavMenu>
           <NavLink to='/about'>About</NavLink>
           <NavLink to='/contact-us'>Contact us</NavLink>
-          <NavLink to='/log-in'>Log in</NavLink>
         </NavMenu>
         <NavBtn>
-          <NavBtnLink data-testid='test-button-signin' to='/sign-in'>
-            Sign Up
-          </NavBtnLink>
+          {user ? (
+            <button onClick={logout}> Sign Out </button>
+          ) : (
+            <NavBtnLink to='/log-in'>Log in</NavBtnLink>
+          )}
         </NavBtn>
       </Nav>
     </>

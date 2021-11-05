@@ -6,10 +6,10 @@ import Footer from './components/Footer/Footer';
 import Home from './pages';
 import About from './pages/About';
 import ContactUs from './pages/ContactUs';
-import SignIn from './pages/SignUp';
+import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
 import Sidebar from './components/Sidebar';
-import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase-config';
 
 function App() {
@@ -18,10 +18,6 @@ function App() {
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
   });
-
-  const logout = async () => {
-    await signOut(auth);
-  };
 
   return (
     <div className='app' data-testid='test-app'>
@@ -32,15 +28,13 @@ function App() {
         <div>
           <h4> User Logged In: </h4>
           {user?.email}
-
-          <button onClick={logout}> Sign Out </button>
         </div>
 
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/about' component={About} />
           <Route path='/contact-us' component={ContactUs} />
-          <Route path='/sign-in' component={SignIn} />
+          <Route path='/sign-up' component={SignUp} />
           <Route path='/log-in' component={LogIn} />
         </Switch>
       </Router>
