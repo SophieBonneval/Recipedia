@@ -8,6 +8,7 @@ import About from './pages/about';
 import ContactUs from './pages/ContactUs';
 import SignIn from './pages/SignIn';
 import Sidebar from './components/Sidebar';
+import RecipeDetail from './components/RecipeDetail/Recipedetail';
 
 function App() {
   //  const [isOpen, setIsOpen] = useState(false);
@@ -21,11 +22,13 @@ function App() {
       <Router>
         <Sidebar />
         <Navbar />
+        <RecipeDetail/>
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/about' component={About} />
           <Route path='/contact-us' component={ContactUs} />
           <Route path='/sign-in' component={SignIn} />
+          <Route path='/recipe/:id' component={RecipeDetail} />
         </Switch>
       </Router>
       <Footer />
