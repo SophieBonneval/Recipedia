@@ -22,7 +22,6 @@ function App() {
       <Router>
         <Sidebar />
         <Navbar />
-        <RecipeDetail/>
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/about' component={About} />
