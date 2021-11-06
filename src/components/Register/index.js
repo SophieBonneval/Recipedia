@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../firebase-config';
+import { auth,db } from '../../firebase-config';
+import { setDoc, doc, Timestamp } from "firebase/firestore";
 
 const Register = () => {
   const [registerEmail, setRegisterEmail] = useState('');
@@ -13,7 +14,11 @@ const Register = () => {
         registerEmail,
         registerPassword
       );
-      console.log(user);
+      await setDoc(doc(db, "users", user.user.uid), {
+        uid: user.user.uid,
+        registerEmail,
+        createdAt: Timestamp.fromDate(new Date()),
+      });
     } catch (error) {
       console.log(error.message);
     }
