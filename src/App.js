@@ -12,6 +12,7 @@ import Sidebar from './components/Sidebar';
 import RecipeDetail from './components/RecipeDetail/Recipedetail';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase-config';
+import UserCreateRecipe from './components/UserRecipe/UserCreateRecipe'
 
 function App() {
   const [user, setUser] = useState({});
@@ -30,6 +31,7 @@ function App() {
           {user?.email}
         </div>
         <Switch>
+          <Route path='/user/recipe' exact component={UserCreateRecipe} />
           <Route path='/' exact component={Home} />
           <Route path='/about' component={About} />
           <Route path='/contact-us' component={ContactUs} />
