@@ -7,7 +7,7 @@
 
 .col {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 260px);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   grid-gap: 20px;
   background-color: #fff;
   color: #444;
@@ -18,13 +18,8 @@
 .search-area {
   display: flex;
   justify-content: center;
-  margin: 32px 10%;
-}
-
-@media screen and (max-width: 400px) {
-  .search-area {
-    margin: 32px 0;
-  }
+  margin: 32px auto;
+  max-width: 800px;
 }
 
 .search-area input {
@@ -43,7 +38,7 @@
   border: 1px solid #d1d1d1;
   background-color: #d1d1d1;
   cursor: pointer;
-  flex: 1 0 30%;
+  flex: 1 0 25%;
   font-size: 16px;
 }
 

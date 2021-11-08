@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer/Footer';
@@ -10,25 +10,21 @@ import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
 import Sidebar from './components/Sidebar';
 import RecipeDetail from './components/RecipeDetail/Recipedetail';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from './firebase-config';
+// import { onAuthStateChanged } from 'firebase/auth';
+// import { auth } from './firebase-config';
 
 function App() {
-  const [user, setUser] = useState({});
+  // const [user, setUser] = useState({});
 
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
+  // onAuthStateChanged(auth, (currentUser) => {
+  //   setUser(currentUser);
+  // });
 
   return (
     <div className='app' data-testid='test-app'>
       <Router>
         <Sidebar />
         <Navbar />
-        <div>
-          <h4> User Logged In: </h4>
-          {user?.email}
-        </div>
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/about' component={About} />
@@ -50,3 +46,8 @@ export default App;
 //  const toggle = () => {
 //    setIsOpen(!isOpen);
 //  };
+
+/* <div>
+<h4> User Logged In: </h4>
+{user?.email}
+</div> */
