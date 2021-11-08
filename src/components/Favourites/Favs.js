@@ -21,7 +21,7 @@ const Favs = () => {
   return (
     <div>
     {recipes.map((recipe) => (
-        <li key={recipe.id}>{recipe.title}</li>
+      <a key={recipe.id} href={recipe.url}>{recipe.title}</a>
     ))}
     </div>
   )
