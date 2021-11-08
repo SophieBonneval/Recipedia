@@ -7,6 +7,7 @@ import {
   NavMenu,
   NavBtn,
   NavBtnLink,
+  NavBtnNormal,
 } from './NavbarElements';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from '../../firebase-config';
@@ -44,7 +45,7 @@ const Navbar = () => {
         </NavMenu>
         <NavBtn>
           {user ? (
-            <button onClick={logout}> Sign Out </button>
+            <NavBtnNormal onClick={logout}> Sign Out </NavBtnNormal>
           ) : (
             <NavBtnLink to='/log-in'>Log in</NavBtnLink>
           )}

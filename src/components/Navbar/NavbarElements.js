@@ -90,3 +90,21 @@ export const NavBtnLink = styled(Link)`
     color: #d1d1d1;
   }
 `;
+
+export const NavBtnNormal = styled.button`
+  border-radius: 4px;
+  background: #d1d1d1;
+  padding: 10px 22px;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  border: none;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: #fff;
+    color: #d1d1d1;
+  }
+`;

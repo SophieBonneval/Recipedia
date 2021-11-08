@@ -4,10 +4,12 @@ import './index.css';
 
 const LogIn = () => {
   return (
-    <div className='container'>
-      <h1>Log in</h1>
-      <Authenticate />
-      <a href='/sign-up'>Sign up</a>
+    <div className='auth-container'>
+      <div className='wrap-auth'>
+        <h2>Log in</h2>
+        <Authenticate />
+        <a href='/sign-up'>Sign up</a>
+      </div>
     </div>
   );
 };
