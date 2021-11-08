@@ -1,31 +1,30 @@
-import React, {useEffect} from 'react'
-import { collection, query, where, getDocs } from "firebase/firestore";
-import { auth,db } from '../../firebase-config';
+import React, {useState, useEffect} from 'react'
+import { collection, query, onSnapshot, where } from "firebase/firestore";
+import { auth, db } from '../../firebase-config';
 
 function UserRecipe() {
+  const [recipes, setRecipes] = useState([]);
 
-useEffect(() => {
-  const q = query(collection(db, "recipes"), where('uid', '==', auth.currentUser.uid));
-  const querySnapshot = getDocs(q);
-  querySnapshot.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshots
-    console.log(doc.id, " => ", doc.data());
-  return () => {
-
-  }
-}, [])
-
-
-
-
-  });
+  useEffect(() => {
+    console.log(auth.currentUser.uid)
+    const q = query(collection(db, "recipes"), where('uid', '==', auth.currentUser.uid));
+    const unsub = onSnapshot(q, (querySnapshot) => {
+      let recipesArray = [];
+      querySnapshot.forEach((doc) => {
+        recipesArray.push({ ...doc.data(), id: doc.id });
+      });
+      setRecipes(recipesArray);
+    });
+    return () => unsub();
+  }, []);
 
   return (
     <div>
-      
+      {recipes.map((recipe) => (
+        <li key={recipe.id}>{recipe.title}</li>
+    ))}
     </div>
   )
 }
 
 export default UserRecipe
-
