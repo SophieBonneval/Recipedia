@@ -33,6 +33,7 @@ function RecipeDetail() {
     await addDoc(collection(db, 'favourites'), {
       uid: auth.currentUser.uid,
       title: recipe.title,
+      id: id,
       readyInMinutes: recipe.readyInMinutes,
       servings: recipe.servings,
       url: recipe.sourceUrl,
