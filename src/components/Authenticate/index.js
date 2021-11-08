@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './index.css';
 import { useHistory } from 'react-router';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase-config';
@@ -7,6 +8,7 @@ const Authenticate = () => {
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
   const history = useHistory();
+  const [error, setError] = useState('');
 
   const login = async () => {
     try {
@@ -17,8 +19,20 @@ const Authenticate = () => {
       );
       history.replace('/');
       console.log(user);
-    } catch (error) {
-      console.log(error.message);
+    } catch (e) {
+      switch (e.code) {
+        case 'auth/invalid-email':
+        case 'auth/user-not-found':
+        case 'auth/wrong-password':
+          setError('Invalid credentials. Please try again!');
+          break;
+        case 'auth/network-request-failed':
+          setError('Network error. Please try again!');
+          break;
+        default:
+          console.error(e);
+          setError('Something went wrong. Please try again!');
+      }
     }
   };
 
@@ -40,6 +54,10 @@ const Authenticate = () => {
       />
 
       <button onClick={login}> Login</button>
+
+      <a href='/sign-up'>Sign up</a>
+
+      {error && <div className='error-notice'>{error}</div>}
     </div>
   );
 };

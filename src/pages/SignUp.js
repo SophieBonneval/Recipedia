@@ -8,7 +8,6 @@ const SignUp = () => {
       <div className='wrap-auth'>
         <h2>Sign up</h2>
         <Register />
-        <a href='/log-in'>Log in</a>
       </div>
     </div>
   );

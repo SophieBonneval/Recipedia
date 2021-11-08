@@ -7,6 +7,7 @@ const Register = () => {
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
   const history = useHistory();
+  const [error, setError] = useState('');
 
   const register = async () => {
     try {
@@ -17,8 +18,20 @@ const Register = () => {
       );
       history.replace('/');
       console.log(user);
-    } catch (error) {
-      console.log(error.message);
+    } catch (e) {
+      switch (e.code) {
+        case 'auth/invalid-email':
+        case 'auth/user-not-found':
+        case 'auth/wrong-password':
+          setError('Invalid credentials. Please try again!');
+          break;
+        case 'auth/network-request-failed':
+          setError('Network error. Please try again!');
+          break;
+        default:
+          console.error(e);
+          setError('Something went wrong. Please try again!');
+      }
     }
   };
 
@@ -44,6 +57,10 @@ const Register = () => {
       </div>
 
       <button onClick={register}> Create User</button>
+
+      <a href='/log-in'>Log in</a>
+
+      {error && <div className='error-notice'>{error}</div>}
     </div>
   );
 };

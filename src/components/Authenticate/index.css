@@ -1,0 +1,7 @@
+.error-notice {
+  margin-top: 2rem;
+  background-color: #ff00002b;
+  color: #c90f0f;
+  padding: 0.6rem;
+  border-radius: 4px;
+}
