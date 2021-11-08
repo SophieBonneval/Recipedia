@@ -42,6 +42,7 @@ const Navbar = () => {
         <NavMenu>
           <NavLink to='/about'>About</NavLink>
           {user ? <NavLink to='/recipe-new'>Add recipe</NavLink> : ''}
+          {user ? <NavLink to='/favourites'>Favourites</NavLink> : ''}
         </NavMenu>
         <NavBtn>
           {user ? (
