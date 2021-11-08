@@ -32,6 +32,10 @@ function RecipeDetail() {
     e.preventDefault();
     await addDoc(collection(db, 'favourites'), {
       uid: auth.currentUser.uid,
+      title: recipe.title,
+      readyInMinutes: recipe.readyInMinutes,
+      servings: recipe.servings,
+      url: recipe.sourceUrl,
       createdAt: Timestamp.fromDate(new Date()),
     });
 
