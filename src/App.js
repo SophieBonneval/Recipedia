@@ -25,10 +25,6 @@ function App() {
       <Router>
         <Sidebar />
         <Navbar />
-        <div>
-          <h4> User Logged In: </h4>
-          {user?.email}
-        </div>
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/about' component={About} />

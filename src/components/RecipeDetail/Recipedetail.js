@@ -22,20 +22,28 @@ function RecipeDetail() {
     fetchData();
 }, []);
 
+  if (recipe!== null) {
   return (
     <div>
-    {console.log(id)}
-    {console.log(recipe)}
-    {/* {recipeDetail && recipeDetail}
-    recipe.id
-    recipe.title
-    recipe.image
-    recipe.servings
-    recipe.readyInMinutes
-    recipe.sourceUrl
-    recipe.instructions */}
+    <h1>{recipe.title}</h1>
+    <img src={recipe.image} alt={recipe.title} />
+    <ul>
+			<li>🍽 Serves: {recipe.servings}</li>
+			<li>⏱Total Time: {recipe.readyInMinutes} minutes</li>
+		</ul>
+    <h2> Ingredients </h2>
+    <ul>
+      {recipe.extendedIngredients.map((ingredient) => <li key={ingredient.id}>{ingredient.original}</li>)}
+    </ul>
+    <h2> Instructions </h2>
+    <ol>
+      {recipe.analyzedInstructions[0].steps.map((step) => <li key={step.id}>{step.step}</li>)}
+    </ol>
+    <a href={recipe.sourceUrl}>link to original recipe</a>
     </div>
-  )
+  )} else {
+    return <div></div>
+  }
 }
 
 export default RecipeDetail
