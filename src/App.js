@@ -5,11 +5,11 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer/Footer';
 import Home from './pages';
 import About from './pages/About';
-import ContactUs from './pages/ContactUs';
 import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
 import Sidebar from './components/Sidebar';
 import RecipeDetail from './components/RecipeDetail/Recipedetail';
+import RecipeNew from './pages/RecipeNew';
 // import { onAuthStateChanged } from 'firebase/auth';
 // import { auth } from './firebase-config';
 
@@ -28,7 +28,7 @@ function App() {
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/about' component={About} />
-          <Route path='/contact-us' component={ContactUs} />
+          <Route path='/recipe-new' component={RecipeNew} />
           <Route path='/recipe/:id' component={RecipeDetail} />
           <Route path='/sign-up' component={SignUp} />
           <Route path='/log-in' component={LogIn} />

@@ -41,7 +41,7 @@ const Navbar = () => {
         </MobileIcon>
         <NavMenu>
           <NavLink to='/about'>About</NavLink>
-          <NavLink to='/contact-us'>Contact us</NavLink>
+          {user ? <NavLink to='/recipe-new'>Add recipe</NavLink> : ''}
         </NavMenu>
         <NavBtn>
           {user ? (
