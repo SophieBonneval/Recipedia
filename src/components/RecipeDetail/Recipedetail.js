@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import {
+  addDoc,
+  collection,
+  Timestamp,
+} from 'firebase/firestore';
+import { auth, db } from '../../firebase-config';
 
 function RecipeDetail() {
   const { id } = useParams();
@@ -21,6 +27,15 @@ function RecipeDetail() {
 
     fetchData();
   }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await addDoc(collection(db, 'favourites'), {
+      uid: auth.currentUser.uid,
+      createdAt: Timestamp.fromDate(new Date()),
+    });
+
+  };
 
   if (recipe !== null) {
     return (
@@ -47,6 +62,10 @@ function RecipeDetail() {
         <a href={recipe.sourceUrl} target='_blank' rel='noopener noreferrer'>
           link to original recipe
         </a>
+        <button
+        onClick={handleSubmit}>
+        Add to favourites
+        </button>
       </div>
     );
   } else {
