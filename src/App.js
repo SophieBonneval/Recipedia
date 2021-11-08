@@ -13,6 +13,7 @@ import RecipeDetail from './components/RecipeDetail/Recipedetail';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase-config';
 import UserCreateRecipe from './components/UserRecipe/UserCreateRecipe'
+import UserRecipe from './components/UserRecipe/UserRecipe'
 
 function App() {
   const [user, setUser] = useState({});
@@ -32,6 +33,7 @@ function App() {
         </div>
         <Switch>
           <Route path='/user/recipe' exact component={UserCreateRecipe} />
+          <Route path='/user/recipe' exact component={UserRecipe} />
           <Route path='/' exact component={Home} />
           <Route path='/about' component={About} />
           <Route path='/contact-us' component={ContactUs} />
