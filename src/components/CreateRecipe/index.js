@@ -7,13 +7,14 @@ import {
   where,
   onSnapshot,
 } from 'firebase/firestore';
-// import {
-//   ref,
+import {
+   ref, 
 //   getDownloadURL,
 //   uploadBytes,
 //   deleteObject,
-// } from "firebase/storage";
-import {  auth, db } from '../../firebase-config';
+} from "firebase/storage";
+import {  auth, db, storage } from '../../firebase-config';
+import { uploadBytes } from '@firebase/storage';
 
 
 
@@ -25,7 +26,9 @@ function CreateRecipe() {
   const [ingredients, setIngredients] = useState('');
   const [instructions, setInstructions] = useState('');
   const [recipes, setRecipes] = useState([]);
+  
   console.log(img);
+
   useEffect(() => {
     const q = query(
       collection(db, 'recipes'),
@@ -41,8 +44,20 @@ function CreateRecipe() {
     return () => unsub();
   }, []);
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+      if (img) {
+      const uploadImg = async () => {
+        const imgRef = ref(
+          storage,
+          `gallery/${new Date().getTime()} - ${img.name}`
+        );
+        const snap = await uploadBytes(imgRef, img);
+        console.log(snap.ref.fullPath);
+      };
+      uploadImg();
+    }
     await addDoc(collection(db, 'recipes'), {
       uid: auth.currentUser.uid,
       title,
