@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { auth, db } from '../../firebase-config';
 import RecipeDisplay from '../RecipeDisplay/RecipeDisplay';
+import { FaHeart } from 'react-icons/fa';
 
 function RecipeDetail() {
   const { id } = useParams();
@@ -42,7 +43,7 @@ function RecipeDetail() {
     return (
       <div>
         <RecipeDisplay recipe={recipe} />
-        <button onClick={handleSubmit}>Add to favourites</button>
+        <button onClick={handleSubmit}><FaHeart className='heart'/>Add to favourites</button>
       </div>
     );
   } else {
