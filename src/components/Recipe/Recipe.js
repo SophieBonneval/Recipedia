@@ -1,19 +1,31 @@
 import React from 'react';
 import './Recipe.css';
-import { Link } from 'react-router-dom'
+import styled from 'styled-components';
+import { NavLink as Link } from 'react-router-dom';
 
 function recipe({ recipe }) {
+  const NavLink = styled(Link)`
+    color: #393939;
+    text-decoration: none;
+    height: 100%;
+    cursor: pointer;
+
+    &:hover {
+      color: #000;
+    }
+  `;
+
   return (
-    <Link to={`/recipe/${recipe.id}`}>
-    <div className='card'>
-      <div className='card-image' id={recipe.id}>
-        <img src={recipe.image} alt={recipe.title} />
+    <NavLink to={`/recipe/${recipe.id}`}>
+      <div className='card'>
+        <div className='card-image' id={recipe.id}>
+          <img src={recipe.image} alt={recipe.title} />
+        </div>
+        <div className='card-body'>
+          <h1>{recipe.title}</h1>
+        </div>
       </div>
-      <div className='card-body'>
-        <h1>{recipe.title}</h1>
-      </div>
-    </div>
-    </Link>
+    </NavLink>
   );
 }
 
