@@ -4,6 +4,7 @@ import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { auth, db } from '../../firebase-config';
 
 function CreateRecipe() {
+  const [img, setImg] = useState("");
   const [title, setTitle] = useState('');
   const [readyInMinutes, setReadyInMinutes] = useState(0);
   const [ingredients, setIngredients] = useState('');
@@ -11,6 +12,24 @@ function CreateRecipe() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+      if (img) {
+      const uploadImg = async () => {
+        const imgRef = ref(
+          storage,
+          `gallery/${new Date().getTime()} - ${img.name}`
+        );
+        const snap = await uploadBytes(imgRef, img);
+        const url = await getDownloadURL(ref(storage, snap.ref.fullPath));
+
+
+        await updateDoc(doc(db, "users", auth.currentUser.uid), {
+          avatar: url,
+          avatarPath: snap.ref.fullPath,
+        });
+        console.log(snap.ref.fullPath);
+      };
+      uploadImg();
+    }
     await addDoc(collection(db, 'recipes'), {
       uid: auth.currentUser.uid,
       title,
@@ -65,6 +84,13 @@ function CreateRecipe() {
             placeholder='Cooking instructions'
             onChange={(e) => setInstructions(e.target.value)}
           />
+        <input
+                type="file"
+                // accept="image/*"
+                // style={{ display: "none" }}
+                // id="photo"
+                onChange={(e) => setImg(e.target.files[0])}
+              />
           <button>Save</button>
         </form>
       </div>

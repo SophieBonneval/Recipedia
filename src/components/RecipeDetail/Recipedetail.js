@@ -41,10 +41,15 @@ function RecipeDetail() {
   if (recipe !== null) {
     return (
       <div>
-        <RecipeDisplay recipe={recipe} />
-        <button onClick={handleSubmit}>Add to favourites</button>
+
+        <RecipeDisplay recipe={recipe}/>
+          <button
+            onClick={handleSubmit}>
+            Add to favourites
+          </button>
       </div>
-    );
+    )
+
   } else {
     return <div></div>;
   }

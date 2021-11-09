@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, cleanup } from '@testing-library/react';
-import Footer from '.';
+import Footer from './Footer';
 
 afterEach(() => {
   cleanup();
@@ -8,7 +8,5 @@ afterEach(() => {
 
 test('Displays credits to team members', () => {
   render(<Footer />);
-  expect(
-    screen.getByText('Created by Jake, Keldra, Amanda, Boris and Sophie')
-  ).toBeInTheDocument();
+  expect(screen.getByTestId('Footer-tag')).toBeInTheDocument();
 });
