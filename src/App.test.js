@@ -6,6 +6,7 @@ afterEach(() => {
   cleanup();
 });
 
+ 
 test(".nav element to be on the page", () => {
   render(<App />);
   const testApp = screen.getByTestId("test-app");

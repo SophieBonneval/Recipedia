@@ -22,22 +22,28 @@ const Authenticate = () => {
   return (
     <div>
       <h3> Login </h3>
+
       <input
-        type='email'
-        placeholder='Email...'
+        type="email"
+        placeholder="Email..."
+        data-testid="email-input"
         onChange={(event) => {
           setLoginEmail(event.target.value);
         }}
       />
+
       <input
-        type='password'
-        placeholder='Password...'
+        type="password"
+        placeholder="Password..."
+        data-testid="password-input"
         onChange={(event) => {
           setLoginPassword(event.target.value);
         }}
       />
 
-      <button onClick={login}> Login</button>
+      <button onClick={login} title="loginButton" data-testid="login-button">
+        Login
+      </button>
     </div>
   );
 };

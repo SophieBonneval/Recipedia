@@ -37,7 +37,7 @@ const Register = () => {
         }}
       />
 
-      <button onClick={register}> Create User</button>
+      <button onClick={register} title="registerButton">Register</button>
     </div>
   );
 };

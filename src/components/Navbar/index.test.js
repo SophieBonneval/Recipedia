@@ -8,11 +8,13 @@ afterEach(() => {
 });
 
 test('Recipedia logo name to be on the page', () => {
-  render(
-    <Router>
-      <Navbar />
-    </Router>
-  );
+  act(() => {
+    render(
+      <Router>
+        <Navbar />
+      </Router>
+    );
+  });
   expect(screen.getByText('Recipedia')).toBeInTheDocument();
 });
 
@@ -26,11 +28,11 @@ test('Menu links are displayed', () => {
   expect(screen.getByText('Contact us')).toBeInTheDocument();
 });
 
-test('Sign in button is displayed', () => {
+test('Log in button is displayed', () => {
   render(
     <Router>
       <Navbar />
     </Router>
   );
-  expect(screen.getByTestId('test-button-signin')).toBeInTheDocument();
+  expect(screen.getByTestId('test-button-login')).toBeInTheDocument();
 });

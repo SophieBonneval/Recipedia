@@ -32,23 +32,24 @@ const Navbar = () => {
   return (
     <>
       <Nav>
-        <NavLink to='/'>
+        <NavLink to="/">
           <h1>Recipedia</h1>
         </NavLink>
         <MobileIcon>
           <Bars />
         </MobileIcon>
         <NavMenu>
-          <NavLink to='/about'>About</NavLink>
-          <NavLink to='/contact-us'>Contact us</NavLink>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/contact-us">Contact us</NavLink>
         </NavMenu>
         <NavBtn>
           {user ? (
             <button onClick={logout}> Sign Out </button>
+
           ) : (
             <NavBtnLink to='/log-in'>Log in</NavBtnLink>
-          )}
-        </NavBtn>
+          )} 
+       </NavBtn>
       </Nav>
     </>
   );
