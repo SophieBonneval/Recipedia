@@ -1,12 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import {
-  addDoc,
-  collection,
-  Timestamp,
-  query,
-  where,
-  onSnapshot,
-} from 'firebase/firestore';
+import React, { useState } from 'react';
+import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { auth, db } from '../../firebase-config';
 
 function CreateRecipe() {
@@ -14,22 +7,6 @@ function CreateRecipe() {
   const [readyInMinutes, setReadyInMinutes] = useState(0);
   const [ingredients, setIngredients] = useState('');
   const [instructions, setInstructions] = useState('');
-  const [recipes, setRecipes] = useState([]);
-
-  useEffect(() => {
-    const q = query(
-      collection(db, 'recipes'),
-      where('uid', '==', auth.currentUser.uid)
-    );
-    const unsub = onSnapshot(q, (querySnapshot) => {
-      let recipesArray = [];
-      querySnapshot.forEach((doc) => {
-        recipesArray.push({ ...doc.data(), id: doc.id });
-      });
-      setRecipes(recipesArray);
-    });
-    return () => unsub();
-  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -84,9 +61,6 @@ function CreateRecipe() {
         />
         <button>Save</button>
       </form>
-      {recipes.map((recipe) => (
-        <li key={recipe.id}>{recipe.title}</li>
-      ))}
     </div>
   );
 }

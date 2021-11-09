@@ -40,7 +40,7 @@ const Navbar = () => {
           <Bars />
         </MobileIcon>
         <NavMenu>
-          <NavLink to='/about'>About</NavLink>
+          {user ? <NavLink to='/myrecipes'>My recipes</NavLink> : ''}
           {user ? <NavLink to='/recipe-new'>Add recipe</NavLink> : ''}
           {user ? <NavLink to='/favourites'>Favourites</NavLink> : ''}
         </NavMenu>
