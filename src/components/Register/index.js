@@ -36,31 +36,35 @@ const Register = () => {
   };
 
   return (
-    <div className='auth-form'>
-      <div className='form-input'>
+    <div className="auth-form">
+      <div className="form-input">
         <input
-          type='email'
-          placeholder='Email...'
+          type="email"
+          placeholder="Email..."
+          data-testid="email-input"
           onChange={(event) => {
             setRegisterEmail(event.target.value);
           }}
         />
       </div>
-      <div className='form-input'>
+      <div className="form-input">
         <input
-          type='password'
-          placeholder='Password...'
+          type="password"
+          placeholder="Password..."
+          data-testid="password-input"
           onChange={(event) => {
             setRegisterPassword(event.target.value);
           }}
         />
       </div>
 
-      <button onClick={register}> Create User</button>
+      <button onClick={register} title="registerButton" data-testid="register-button">
+        Register
+      </button>
 
-      <a href='/log-in'>Log in</a>
+      <a href="/log-in">Log in</a>
 
-      {error && <div className='error-notice'>{error}</div>}
+      {error && <div className="error-notice">{error}</div>}
     </div>
   );
 };

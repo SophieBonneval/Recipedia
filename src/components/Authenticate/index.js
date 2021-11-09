@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import './index.css';
-import { useHistory } from 'react-router';
-import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../../firebase-config';
+import React, { useState } from "react";
+import "./index.css";
+import { useHistory } from "react-router";
+import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../firebase-config";
 
 const Authenticate = () => {
-  const [loginEmail, setLoginEmail] = useState('');
-  const [loginPassword, setLoginPassword] = useState('');
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
   const history = useHistory();
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [user, setUser] = useState({});
 
   onAuthStateChanged(auth, (currentUser) => {
@@ -23,47 +23,52 @@ const Authenticate = () => {
         loginEmail,
         loginPassword
       );
-      history.replace('/');
+      history.replace("/");
       console.log(user);
     } catch (e) {
       switch (e.code) {
-        case 'auth/invalid-email':
-        case 'auth/user-not-found':
-        case 'auth/wrong-password':
-          setError('Invalid credentials. Please try again!');
+        case "auth/invalid-email":
+        case "auth/user-not-found":
+        case "auth/wrong-password":
+          setError("Invalid credentials. Please try again!");
           break;
-        case 'auth/network-request-failed':
-          setError('Network error. Please try again!');
+        case "auth/network-request-failed":
+          setError("Network error. Please try again!");
           break;
         default:
           console.error(e);
-          setError('Something went wrong. Please try again!');
+          setError("Something went wrong. Please try again!");
       }
     }
   };
 
   return (
-    <div className='auth-form'>
+    <div className="auth-form">
       <input
-        type='email'
-        placeholder='Email...'
+        type="email"
+        placeholder="Email..."
+        data-testid="email-input"
         onChange={(event) => {
           setLoginEmail(event.target.value);
         }}
       />
       <input
-        type='password'
-        placeholder='Password...'
+        type="password"
+        placeholder="Password..."
+        data-testid="password-input"
         onChange={(event) => {
           setLoginPassword(event.target.value);
         }}
       />
 
-      <button onClick={login}> Login</button>
+      <button onClick={login} title="loginButton" data-testid="login-button">
+        {" "}
+        Login
+      </button>
 
-      <a href='/sign-up'>Sign up</a>
+      <a href="/sign-up">Sign up</a>
 
-      {error && <div className='error-notice'>{error}</div>}
+      {error && <div className="error-notice">{error}</div>}
     </div>
   );
 };
