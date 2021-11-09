@@ -1,12 +1,12 @@
 import React from 'react';
+import UserRecipes from '../components/UserRecipes';
 import './index.css';
-import MyRecipes from '../components/MyRecipes';
 
 const MyRecipes = () => {
   return (
-    <div className='container'>
-      <MyRecipes />
-    </div>
+    <>
+      <UserRecipes />
+    </>
   );
 };
 

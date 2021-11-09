@@ -3,18 +3,18 @@ import './Recipe.css';
 import styled from 'styled-components';
 import { NavLink as Link } from 'react-router-dom';
 
+const NavLink = styled(Link)`
+  color: #393939;
+  text-decoration: none;
+  height: 100%;
+  cursor: pointer;
+
+  &:hover {
+    color: #000;
+  }
+`;
+
 function recipe({ recipe }) {
-  const NavLink = styled(Link)`
-    color: #393939;
-    text-decoration: none;
-    height: 100%;
-    cursor: pointer;
-
-    &:hover {
-      color: #000;
-    }
-  `;
-
   return (
     <NavLink to={`/recipe/${recipe.id}`}>
       <div className='card'>
