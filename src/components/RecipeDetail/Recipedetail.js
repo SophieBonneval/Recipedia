@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import './Recipedetail.css';
 import { useParams } from 'react-router-dom';
-import {
-  addDoc,
-  collection,
-  Timestamp,
-} from 'firebase/firestore';
+import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { auth, db } from '../../firebase-config';
 import RecipeDisplay from '../RecipeDisplay/RecipeDisplay';
-
 
 function RecipeDetail() {
   const { id } = useParams();
@@ -42,19 +36,15 @@ function RecipeDetail() {
       url: recipe.sourceUrl,
       createdAt: Timestamp.fromDate(new Date()),
     });
-
   };
 
   if (recipe !== null) {
     return (
-  <div>
-      <RecipeDisplay recipe={recipe}/>
-         <button
-        onClick={handleSubmit}>
-        Add to favourites
-        </button>
-</div>
-   )
+      <div>
+        <RecipeDisplay recipe={recipe} />
+        <button onClick={handleSubmit}>Add to favourites</button>
+      </div>
+    );
   } else {
     return <div></div>;
   }
