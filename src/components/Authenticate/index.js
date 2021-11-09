@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './index.css';
 import { useHistory } from 'react-router';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../firebase-config';
 
 const Authenticate = () => {
@@ -9,6 +9,12 @@ const Authenticate = () => {
   const [loginPassword, setLoginPassword] = useState('');
   const history = useHistory();
   const [error, setError] = useState('');
+  const [user, setUser] = useState({});
+
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+    console.log(user);
+  });
 
   const login = async () => {
     try {
