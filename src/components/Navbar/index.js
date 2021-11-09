@@ -28,31 +28,33 @@ const Navbar = () => {
 
   //   <button onClick={logout}> Sign Out </button>
   // </div>;
+  
+    return (
+      <>
+        <Nav>
+          <NavLink to="/">
+            <h1>Recipedia</h1>
+          </NavLink>
+          <MobileIcon>
+            <Bars />
+          </MobileIcon>
+          <NavMenu>
+            <NavLink to="/about">About</NavLink>
+            <NavLink to="/contact-us">Contact us</NavLink>
+          </NavMenu>
+          <NavBtn>
+            {user ? (
+              <button onClick={logout}> Sign Out </button>
 
-  return (
-    <>
-      <Nav>
-        <NavLink to="/">
-          <h1>Recipedia</h1>
-        </NavLink>
-        <MobileIcon>
-          <Bars />
-        </MobileIcon>
-        <NavMenu>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/contact-us">Contact us</NavLink>
-        </NavMenu>
-        <NavBtn>
-          {user ? (
-            <button onClick={logout}> Sign Out </button>
-
-          ) : (
-            <NavBtnLink to='/log-in'>Log in</NavBtnLink>
-          )} 
-       </NavBtn>
-      </Nav>
-    </>
-  );
+            ) : (
+              <NavBtnLink to='/log-in'>Log in</NavBtnLink>
+            )} 
+        </NavBtn>
+        </Nav>
+      </>
+    
+    );
+  
 };
 
 export default Navbar;

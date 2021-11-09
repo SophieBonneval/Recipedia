@@ -9,6 +9,6 @@ afterEach(() => {
 test('Displays credits to team members', () => {
   render(<Footer />);
   expect(
-    screen.getByText('Created by Jake, Keldra, Amanda, Boris and Sophie')
+    screen.getByText('Created by Jake, Keldra, Amanda, Boris, and Sophie')
   ).toBeInTheDocument();
 });

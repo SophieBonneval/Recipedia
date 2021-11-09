@@ -8,7 +8,9 @@ afterEach(() => {
 
  
 test(".nav element to be on the page", () => {
-  render(<App />);
+  act (() => {
+    render(<App />);
+  });
   const testApp = screen.getByTestId("test-app");
   expect(testApp).toContainHTML("</nav>");
 });
