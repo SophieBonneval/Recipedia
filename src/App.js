@@ -12,6 +12,7 @@ import Sidebar from './components/Sidebar';
 import RecipeDetail from './components/RecipeDetail/Recipedetail';
 import RecipeNew from './pages/RecipeNew';
 import Favourites from './pages/Favourites';
+import MyRecipes from './components/UserRecipes';
 // import { onAuthStateChanged } from 'firebase/auth';
 // import { auth } from './firebase-config';
 
@@ -33,6 +34,7 @@ function App() {
           <Route path='/recipe-new' component={RecipeNew} />
           <Route path='/favourites' component={Favourites} />
           <Route path='/recipe/:id' component={RecipeDetail} />
+          <Route path='/my-recipes' component={MyRecipes} />
           <Route path='/sign-up' component={SignUp} />
           <Route path='/log-in' component={LogIn} />
         </Switch>

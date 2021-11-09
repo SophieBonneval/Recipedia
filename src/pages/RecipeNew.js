@@ -5,7 +5,6 @@ import './index.css';
 const RecipeNew = () => {
   return (
     <div className='container'>
-      <h1>Create a new recipe</h1>
       <CreateRecipe />
     </div>
   );
