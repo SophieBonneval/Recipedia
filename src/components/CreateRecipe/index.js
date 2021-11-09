@@ -9,12 +9,13 @@ import {
 } from 'firebase/firestore';
 import {
    ref, 
-//   getDownloadURL,
+  getDownloadURL,
 //   uploadBytes,
 //   deleteObject,
 } from "firebase/storage";
 import {  auth, db, storage } from '../../firebase-config';
 import { uploadBytes } from '@firebase/storage';
+import { doc, updateDoc } from "firebase/firestore";
 
 
 
@@ -54,6 +55,13 @@ function CreateRecipe() {
           `gallery/${new Date().getTime()} - ${img.name}`
         );
         const snap = await uploadBytes(imgRef, img);
+        const url = await getDownloadURL(ref(storage, snap.ref.fullPath));
+
+
+        await updateDoc(doc(db, "users", auth.currentUser.uid), {
+          avatar: url,
+          avatarPath: snap.ref.fullPath,
+        });
         console.log(snap.ref.fullPath);
       };
       uploadImg();
