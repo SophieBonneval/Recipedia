@@ -23,21 +23,25 @@ const Register = () => {
     <div>
       <h3> Register User </h3>
       <input
-        type='email'
-        placeholder='Email...'
+        type="email"
+        placeholder="Email..."
+        data-testid="email-input"
         onChange={(event) => {
           setRegisterEmail(event.target.value);
         }}
       />
       <input
-        type='password'
-        placeholder='Password...'
+        type="password"
+        placeholder="Password..."
+        data-testid="password-input"
         onChange={(event) => {
           setRegisterPassword(event.target.value);
         }}
       />
 
-      <button onClick={register} title="registerButton">Register</button>
+      <button onClick={register} title="registerButton" data-testid="register-button">
+        Register
+      </button>
     </div>
   );
 };
