@@ -7,7 +7,16 @@ import {
   where,
   onSnapshot,
 } from 'firebase/firestore';
-import { auth, db } from '../../firebase-config';
+// import {
+//   ref,
+//   getDownloadURL,
+//   uploadBytes,
+//   deleteObject,
+// } from "firebase/storage";
+import {  auth, db } from '../../firebase-config';
+
+
+
 
 function CreateRecipe() {
   const [title, setTitle] = useState('');
@@ -82,6 +91,13 @@ function CreateRecipe() {
           placeholder='Cooking instructions'
           onChange={(e) => setInstructions(e.target.value)}
         />
+        <input
+                type="file"
+                // accept="image/*"
+                // style={{ display: "none" }}
+                // id="photo"
+                // onChange={(e) => setImg(e.target.files[0])}
+              />
         <button>Save</button>
       </form>
       {recipes.map((recipe) => (
