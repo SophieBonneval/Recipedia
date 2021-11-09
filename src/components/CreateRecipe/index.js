@@ -82,6 +82,7 @@ function CreateRecipe() {
           />
           <input
             type="file"
+            accept='image/*'
             onChange={(e) => setImg(e.target.files[0])}
           />
           <button>Save</button>
