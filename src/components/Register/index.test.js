@@ -1,16 +1,16 @@
-import React from "react";
-import { render, screen, cleanup } from "@testing-library/react";
+import React from 'react';
+import { render, screen, cleanup, fireEvent } from '@testing-library/react';
 import userEvent from "@testing-library/user-event";
-import Authenticate from "./Authenticate";
+import Register from '.';
 
 afterEach(() => {
   cleanup();
 });
 
-describe("Authenticate component", () => {
+describe("Register component", () => {
   // tests email input
   test("render email input", () => {
-    render(<Authenticate />);
+    render(<Register />);
     const inputEmail = screen.getByPlaceholderText("Email...");
     expect(inputEmail).toBeInTheDocument();
     expect(inputEmail).toHaveAttribute("type", "email");
@@ -18,7 +18,7 @@ describe("Authenticate component", () => {
 
   // tests password input
   test("render password input", () => {
-    render(<Authenticate />);
+    render(<Register />);
     const inputPassword = screen.getByPlaceholderText("Password...");
     expect(inputPassword).toBeInTheDocument();
     expect(inputPassword).toHaveAttribute("type", "password");
@@ -26,7 +26,7 @@ describe("Authenticate component", () => {
 
   // tests valid email
   test("email valid", () => {
-    render(<Authenticate />);
+    render(<Register />);
     const validEmail = screen.getByTestId("email-input");
     userEvent.type(validEmail, "test@gmail.com");
     expect(screen.getByTestId("email-input")).toHaveValue("test@gmail.com");
@@ -34,8 +34,8 @@ describe("Authenticate component", () => {
   });
 
   // tests invalid email
-  test("email invalid", () => {
-    render(<Authenticate />);
+  test("email valid", () => {
+    render(<Register />);
     const invalidEmail = screen.getByTestId("email-input");
     userEvent.type(invalidEmail, "testgmail");
     expect(screen.getByTestId("email-input")).toHaveValue("testgmail");
@@ -43,8 +43,8 @@ describe("Authenticate component", () => {
 
   // tests that button renders
   test("checks button has rendered", () => {
-    render(<Authenticate />);
-    const button = screen.getByTitle("loginButton");
+    render(<Register />);
+    const button = screen.getByTitle("registerButton");
     expect(button).toBeInTheDocument();
   });
 });
