@@ -19,12 +19,13 @@ import {  auth, db } from '../../firebase-config';
 
 
 function CreateRecipe() {
+  const [img, setImg] = useState("");
   const [title, setTitle] = useState('');
   const [readyInMinutes, setReadyInMinutes] = useState(0);
   const [ingredients, setIngredients] = useState('');
   const [instructions, setInstructions] = useState('');
   const [recipes, setRecipes] = useState([]);
-
+  console.log(img);
   useEffect(() => {
     const q = query(
       collection(db, 'recipes'),
@@ -96,7 +97,7 @@ function CreateRecipe() {
                 // accept="image/*"
                 // style={{ display: "none" }}
                 // id="photo"
-                // onChange={(e) => setImg(e.target.files[0])}
+                onChange={(e) => setImg(e.target.files[0])}
               />
         <button>Save</button>
       </form>
