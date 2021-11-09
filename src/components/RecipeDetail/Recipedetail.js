@@ -7,7 +7,7 @@ import {
   Timestamp,
 } from 'firebase/firestore';
 import { auth, db } from '../../firebase-config';
-import RecipeDisplay from '../RecipeDisplay/RecipeDisplay';
+import RecipeDisplay from './RecipeDisplay/RecipeDisplay';
 
 
 function RecipeDetail() {
