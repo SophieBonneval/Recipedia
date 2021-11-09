@@ -6,9 +6,7 @@ import {
   ref,
   getDownloadURL,
   uploadBytes,
-  
 } from "firebase/storage";
-import {  doc, updateDoc } from "firebase/firestore";
 
 
 function CreateRecipe() {
@@ -20,36 +18,26 @@ function CreateRecipe() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-      if (img) {
-      const uploadImg = async () => {
         const imgRef = ref(
           storage,
           `gallery/${new Date().getTime()} - ${img.name}`
         );
         const snap = await uploadBytes(imgRef, img);
         const url = await getDownloadURL(ref(storage, snap.ref.fullPath));
-
-
-        await updateDoc(doc(db, "users", auth.currentUser.uid), {
-          avatar: url,
-          avatarPath: snap.ref.fullPath,
-        });
-        console.log(snap.ref.fullPath);
-      };
-      uploadImg();
-    }
     await addDoc(collection(db, 'recipes'), {
       uid: auth.currentUser.uid,
       title,
       readyInMinutes,
       ingredients,
       instructions,
+      image: url,
       createdAt: Timestamp.fromDate(new Date()),
     });
     setTitle('');
     setReadyInMinutes(0);
     setIngredients('');
     setInstructions('');
+    setImg('');
   };
 
   return (
@@ -92,13 +80,10 @@ function CreateRecipe() {
             placeholder='Cooking instructions'
             onChange={(e) => setInstructions(e.target.value)}
           />
-        <input
-                type="file"
-                // accept="image/*"
-                // style={{ display: "none" }}
-                // id="photo"
-                onChange={(e) => setImg(e.target.files[0])}
-              />
+          <input
+            type="file"
+            onChange={(e) => setImg(e.target.files[0])}
+          />
           <button>Save</button>
         </form>
       </div>
