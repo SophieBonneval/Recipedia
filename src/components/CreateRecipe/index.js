@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import './index.css';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
-import { auth, db } from '../../firebase-config';
+import { storage, auth, db } from '../../firebase-config';
+import {
+  ref,
+  getDownloadURL,
+  uploadBytes,
+  
+} from "firebase/storage";
+import {  doc, updateDoc } from "firebase/firestore";
+
 
 function CreateRecipe() {
   const [img, setImg] = useState("");
