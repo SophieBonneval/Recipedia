@@ -29,6 +29,7 @@ const UserRecipes = () => {
           {recipes.map((recipe) => (
             <div key={recipe.id}>
               <div>{recipe.title}</div>
+              
               <img src={recipe.image} alt={recipe.title} />
               <div>{recipe.readyInMinutes}</div>
               <div>
