@@ -1,10 +1,11 @@
-import { render, screen, cleanup } from "@testing-library/react";
-import React from "react";
-import App from "./App";
+import React from 'react';
+import { render, screen, cleanup } from '@testing-library/react';
+import App from './App';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-afterEach(() => {
-  cleanup();
-});
+  afterEach(() => {
+    cleanup();
+  });
 
 test(".nav element to be on the page", () => {
   render(<App />);
