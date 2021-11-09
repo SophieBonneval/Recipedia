@@ -19,7 +19,8 @@
   flex-direction: column;
 }
 
-.new-recipe-form input {
+.new-recipe-form input,
+.new-recipe-form textarea {
   padding: 14px;
   border: 1px solid #d1d1d1;
   border-radius: 4px;

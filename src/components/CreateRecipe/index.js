@@ -52,13 +52,15 @@ function CreateRecipe() {
             name='ingredients'
             id='ingredients'
             value={ingredients}
-            placeholder='Ingredients, i.e. chicken, potatoes, etc'
+            placeholder='Ingredients separated by a coma (i.e. chicken, potatoes, pepper)'
             onChange={(e) => setIngredients(e.target.value)}
           />
-          <input
+          <textarea
             type='text'
             name='instructions'
             id='instructions'
+            rows='4'
+            cols='50'
             value={instructions}
             placeholder='Cooking instructions'
             onChange={(e) => setInstructions(e.target.value)}
