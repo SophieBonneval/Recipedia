@@ -42,19 +42,18 @@ function RecipeDetail() {
       url: recipe.sourceUrl,
       createdAt: Timestamp.fromDate(new Date()),
     });
-
   };
 
   if (recipe !== null) {
     return (
-  <div>
-      <RecipeDisplay recipe={recipe}/>
-         <button
-        onClick={handleSubmit}>
-        Add to favourites
-        </button>
-</div>
-   )
+      <div>
+        <RecipeDisplay recipe={recipe}/>
+          <button
+            onClick={handleSubmit}>
+            Add to favourites
+          </button>
+      </div>
+    )
   } else {
     return <div></div>;
   }
