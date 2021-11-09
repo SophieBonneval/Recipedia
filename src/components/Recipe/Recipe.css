@@ -9,8 +9,8 @@
   background-clip: border-box;
   border: 1px solid rgba(177, 174, 174, 0.125);
   border-radius: 0.25rem;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
-  margin: 12px 0;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  height: 100%;
 }
 
 .card-image {
