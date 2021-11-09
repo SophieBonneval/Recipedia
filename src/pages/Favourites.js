@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
+import './index.css';
 import Favs from '../components/Favourites/Favs';
 
 const Favourites = () => {
-
   return (
-    <div>
-    <Favs />
+    <div className='container'>
+      <Favs />
     </div>
-  )
-}
+  );
+};
 
-export default Favourites
+export default Favourites;
