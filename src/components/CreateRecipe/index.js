@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState,  } from 'react';
 import './index.css';
-import { addDoc, collection, Timestamp } from 'firebase/firestore';
+import { addDoc, collection, Timestamp, } from 'firebase/firestore';
 import { storage, auth, db } from '../../firebase-config';
 import {
   ref,
   getDownloadURL,
   uploadBytes,
+  
 } from "firebase/storage";
 
 
@@ -16,15 +17,27 @@ function CreateRecipe() {
   const [ingredients, setIngredients] = useState('');
   const [instructions, setInstructions] = useState('');
 
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
         const imgRef = ref(
           storage,
           `gallery/${new Date().getTime()} - ${img.name}`
         );
+        if (!img) {
+          console.log('image is required');
+          return false;
+          
+        }
+        if (!img.name.match(/\.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$/)) {
+          console.log('select valid image.');
+          return false;
+        }
         const snap = await uploadBytes(imgRef, img);
         const url = await getDownloadURL(ref(storage, snap.ref.fullPath));
-    await addDoc(collection(db, 'recipes'), {
+          
+
+      await addDoc(collection(db, 'recipes'), {
       uid: auth.currentUser.uid,
       title,
       readyInMinutes,
@@ -40,11 +53,12 @@ function CreateRecipe() {
     setImg('');
   };
 
-  return (
+
+    return (
     <div className='new-recipe-container'>
       <div className='new-recipe'>
         <h1>Create a new recipe</h1>
-        <form className='new-recipe-form' onSubmit={handleSubmit}>
+        <form className='new-recipe-form' onSubmit={handleSubmit} >
           <input
             type='text'
             name='title'
@@ -80,15 +94,18 @@ function CreateRecipe() {
             placeholder='Cooking instructions'
             onChange={(e) => setInstructions(e.target.value)}
           />
-          <input
+        
+          <input  
             type="file"
             accept='image/*'
             onChange={(e) => setImg(e.target.files[0])}
           />
           <button>Save</button>
+
         </form>
-      </div>
     </div>
+    </div>
+    
   );
 }
 
