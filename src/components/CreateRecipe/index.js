@@ -87,8 +87,8 @@ function CreateRecipe() {
       createdAt: Timestamp.fromDate(new Date()),
     });
     setTitle('');
-    setReadyInMinutes(0);
-    setServes(1);
+    setReadyInMinutes('');
+    setServes('');
     setIngredients('');
     setInstructions('');
     setImg('');
@@ -139,7 +139,7 @@ function CreateRecipe() {
           />
           {!servesIsValid && (
             <p className='error-message'>
-              Time of preparation must be more than 0 minutes.
+              How many it feeds must be more than 0.
             </p>
           )}
           <input
