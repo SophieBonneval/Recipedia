@@ -26,14 +26,16 @@ const Favs = () => {
   return (
     <div>
       {recipes.map((recipe) => (
-        <a key={recipe.id} href={recipe.url}>
-          {recipe.title} <button onClick={() => {
+        <div key={recipe.id} href={recipe.url}>
+          <a href={recipe.url}>{ recipe.title} </a>
+          <button onClick={() => {
             removeFavourite(recipe.id);
           }}>
             {" "}
             Remove recipe
           </button>
-        </a>
+          
+        </div>
       ))}
     </div>
   );
