@@ -1,6 +1,6 @@
 # Recipedia
 
-Recipedia is an app to help food lovers search for recipes, add recipes to their favourite list and with the inspiration of browing recipes they can create their own recipes.
+Recipedia is an app to help food lovers search for recipes, add recipes to their favourites list and with the inspiration of browsing recipes they can create their own recipes.
 
 ## User stories
 
