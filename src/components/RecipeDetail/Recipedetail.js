@@ -3,15 +3,16 @@ import { useParams } from 'react-router-dom';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { auth, db } from '../../firebase-config';
 import RecipeDisplay from '../RecipeDisplay/RecipeDisplay';
-import { onAuthStateChanged} from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 
 function RecipeDetail() {
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
   const [user, setUser] = useState({});
-  const [text, setText] = useState("Add to favourites");
-  const [color, setColor] = useState("green");
-  const [textColor, setTextColor] = useState("white");
+  const [text, setText] = useState('Add to favourites');
+  const [color, setColor] = useState('green');
+  const [textColor, setTextColor] = useState('white');
+
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
   });
@@ -29,7 +30,6 @@ function RecipeDetail() {
         console.log('error', error);
       }
     };
-
     fetchData();
   }, []);
 
@@ -44,32 +44,33 @@ function RecipeDetail() {
       url: recipe.sourceUrl,
       createdAt: Timestamp.fromDate(new Date()),
     });
-
   };
 
   if (recipe !== null) {
     return (
       <div>
         <RecipeDisplay recipe={recipe} />
+        <i className='far fa-heart'></i>
+        <i className='fas fa-heart'></i>
         {user ? (
           <button
-            style={{background:color,color:textColor}}
+            style={{ background: color, color: textColor }}
             onClick={() => {
               handleSubmit();
-              setColor("blue");setTextColor('black'),setText("Added to favourites")
+              setColor('blue');
+              setTextColor('black'), setText('Added to favourites');
             }}
           >
-            { text }
+            {text}
           </button>
         ) : (
-          ""
+          ''
         )}
       </div>
     );
-
-    } else {
-      return <div></div>;
-    }
+  } else {
+    return <div></div>;
+  }
 }
 
 export default RecipeDetail;
