@@ -5,6 +5,9 @@ import { auth, db } from '../../firebase-config';
 
 const UserRecipes = () => {
   const [recipes, setRecipes] = useState([]);
+  const sortedRecipes = recipes.sort(
+    (a, b) => (a.createdAt < b.createdAt && 1) || -1
+  );
 
   useEffect(() => {
     const q = query(
@@ -26,10 +29,7 @@ const UserRecipes = () => {
       <div className='my-recipes'>
         <h1>My Recipes</h1>
         <div>
-          {console.log(
-            recipes.sort((a, b) => (a.createdAt < b.createdAt && 1) || -1)
-          )}
-          {recipes.map((recipe) => (
+          {sortedRecipes.map((recipe) => (
             <div className='recipe-detail' key={recipe.id}>
               <img
                 className='img-detail'

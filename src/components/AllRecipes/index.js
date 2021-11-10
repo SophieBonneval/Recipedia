@@ -18,11 +18,12 @@ const NavLink = styled(Link)`
 
 const AllRecipes = () => {
   const [recipes, setRecipes] = useState([]);
+  const sortedRecipes = recipes.sort(
+    (a, b) => (a.createdAt < b.createdAt && 1) || -1
+  );
 
   useEffect(() => {
-    const q = query(
-      collection(db, 'recipes')
-    );
+    const q = query(collection(db, 'recipes'));
     const unsub = onSnapshot(q, (querySnapshot) => {
       let recipesArray = [];
       querySnapshot.forEach((doc) => {
@@ -34,24 +35,22 @@ const AllRecipes = () => {
   }, []);
 
   return (
-    <div className='container'>
-      <div className='my-recipes'>
-        <h1>Members recipes</h1>
-        <div className='row'>
-          <div className='col'>
-            {recipes.map((recipe) => (
+    <div className='search-container'>
+      <h1 className='search-title'>Users recipes</h1>
+      <div className='row'>
+        <div className='col'>
+          {sortedRecipes.map((recipe) => (
             <NavLink key={recipe.id} to={`/recipe/${recipe.id}`}>
-            <div className='card'>
-              <div className='card-image'>
-              <img src={recipe.image} alt={recipe.title} />
-              </div>
-                <div className='card-body'>
-                <h1>{recipe.title}</h1>
+              <div className='card'>
+                <div className='card-image'>
+                  <img src={recipe.image} alt={recipe.title} />
                 </div>
-            </div>
+                <div className='card-body'>
+                  <h1>{recipe.title}</h1>
+                </div>
+              </div>
             </NavLink>
-            ))}
-          </div>
+          ))}
         </div>
       </div>
     </div>
