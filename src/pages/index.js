@@ -6,7 +6,7 @@ import './index.css';
 const Home = () => {
   return (
     <div className='container'>
-      <Searchbar />
+      <Searchbar /> 
       <AllRecipes />
     </div>
   );

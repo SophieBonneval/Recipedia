@@ -23,23 +23,12 @@ const AllRecipes = () => {
   return (
     <div className='container'>
       <div className='my-recipes'>
-        <h1>User Recipes</h1>
+        <h1>Members recipes</h1>
         <div>
           {recipes.map((recipe) => (
             <div key={recipe.id}>
               <div>{recipe.title}</div>
-              {console.log(recipe.img)}
               <img src={recipe.image} alt={recipe.title} />
-              <div>{recipe.readyInMinutes}</div>
-              <div>
-                {recipe.ingredients
-                  .split(',')
-                  .map((x) => x.trim())
-                  .map((ingredient) => (
-                    <div key={ingredient.id}>{ingredient}</div>
-                  ))}
-              </div>
-              <div>{recipe.instructions}</div>
             </div>
           ))}
         </div>
