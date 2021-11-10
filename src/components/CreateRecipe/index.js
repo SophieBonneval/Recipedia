@@ -11,12 +11,16 @@ function CreateRecipe() {
   const [ingredients, setIngredients] = useState('');
   const [instructions, setInstructions] = useState('');
 
+  // Validations states
   const [titleIsValid, setTitleIsValid] = useState(true);
+  const [imgIsValid, setImgIsValid] = useState(true);
   const [readyInMinutesIsValid, setReadyInMinutesIsValid] = useState(true);
   const [ingredientsIsValid, setIngredientsIsValid] = useState(true);
   const [instructionsIsValid, setInstructionsIsValid] = useState(true);
 
+  // Validations CSS classes for user feedback
   const titleInputClasses = titleIsValid ? 'form-input' : 'form-input invalid';
+  const imgInputClasses = imgIsValid ? 'form-input' : 'form-input invalid';
   const readyInMinutesInputClasses = readyInMinutesIsValid
     ? 'form-input'
     : 'form-input invalid';
@@ -38,6 +42,14 @@ function CreateRecipe() {
           setInstructionsIsValid(false);
           if (readyInMinutes === '' || readyInMinutes === 0) {
             setReadyInMinutesIsValid(false);
+            if (!img) {
+              setImgIsValid(false);
+              return;
+            }
+            if (!img.name.match(/.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$/)) {
+              setImgIsValid(false);
+              return;
+            }
             return;
           }
           return;
@@ -129,10 +141,11 @@ function CreateRecipe() {
           )}
           <input
             type='file'
-            className='form-input'
+            className={imgInputClasses}
             accept='image/*'
             onChange={(e) => setImg(e.target.files[0])}
           />
+          {!imgIsValid && <p className='error-message'>Select valid image</p>}
           <button>Save</button>
         </form>
       </div>
