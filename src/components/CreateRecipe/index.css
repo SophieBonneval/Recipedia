@@ -19,8 +19,7 @@
   flex-direction: column;
 }
 
-.new-recipe-form input,
-.new-recipe-form textarea {
+.form-input {
   padding: 14px;
   border: 1px solid #d1d1d1;
   border-radius: 4px;
@@ -48,4 +47,19 @@
   .new-recipe-container {
     width: 100%;
   }
+}
+
+.new-recipe-form p {
+  display: none;
+}
+
+.invalid + p {
+  color: #d95151;
+  text-align: left;
+  margin-top: 4px;
+  display: inline;
+}
+
+.invalid {
+  border: 1px solid #d95151;
 }
