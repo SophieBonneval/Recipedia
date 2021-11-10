@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer/Footer';
 import Home from './pages';
-import About from './pages/About';
 import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
 import Sidebar from './components/Sidebar';
@@ -30,7 +29,6 @@ function App() {
         <Navbar />
         <Switch>
           <Route path='/' exact component={Home} />
-          <Route path='/about' component={About} />
           <Route path='/recipe-new' component={RecipeNew} />
           <Route path='/favourites' component={Favourites} />
           <Route path='/recipe/:id' component={RecipeDetail} />
