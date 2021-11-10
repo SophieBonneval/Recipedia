@@ -3,11 +3,14 @@ import './index.css';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { storage, auth, db } from '../../firebase-config';
 import { ref, getDownloadURL, uploadBytes } from 'firebase/storage';
+import { useHistory } from 'react-router';
 
 function CreateRecipe() {
   const [img, setImg] = useState('');
+  const history = useHistory();
   const [title, setTitle] = useState('');
-  const [readyInMinutes, setReadyInMinutes] = useState(0);
+  const [readyInMinutes, setReadyInMinutes] = useState('');
+  const [serves, setServes] = useState('');
   const [ingredients, setIngredients] = useState('');
   const [instructions, setInstructions] = useState('');
 
@@ -15,6 +18,7 @@ function CreateRecipe() {
   const [titleIsValid, setTitleIsValid] = useState(true);
   const [imgIsValid, setImgIsValid] = useState(true);
   const [readyInMinutesIsValid, setReadyInMinutesIsValid] = useState(true);
+  const [servesIsValid, setServesIsValid] = useState(true);
   const [ingredientsIsValid, setIngredientsIsValid] = useState(true);
   const [instructionsIsValid, setInstructionsIsValid] = useState(true);
 
@@ -22,6 +26,9 @@ function CreateRecipe() {
   const titleInputClasses = titleIsValid ? 'form-input' : 'form-input invalid';
   const imgInputClasses = imgIsValid ? 'form-input' : 'form-input invalid';
   const readyInMinutesInputClasses = readyInMinutesIsValid
+    ? 'form-input'
+    : 'form-input invalid';
+  const servesInputClasses = servesIsValid
     ? 'form-input'
     : 'form-input invalid';
   const ingredientsInputClasses = ingredientsIsValid
@@ -40,14 +47,18 @@ function CreateRecipe() {
         setIngredientsIsValid(false);
         if (instructions.trim() === '') {
           setInstructionsIsValid(false);
-          if (readyInMinutes === '' || readyInMinutes === 0) {
+          if (readyInMinutes === '' || readyInMinutes <= 0) {
             setReadyInMinutesIsValid(false);
-            if (!img) {
-              setImgIsValid(false);
-              return;
-            }
-            if (!img.name.match(/.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$/)) {
-              setImgIsValid(false);
+            if (serves === '' || serves <= 0) {
+              setServesIsValid(false);
+              if (!img) {
+                setImgIsValid(false);
+                return;
+              }
+              if (!img.name.match(/.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$/)) {
+                setImgIsValid(false);
+                return;
+              }
               return;
             }
             return;
@@ -69,6 +80,7 @@ function CreateRecipe() {
       uid: auth.currentUser.uid,
       title,
       readyInMinutes,
+      serves,
       ingredients,
       instructions,
       image: url,
@@ -76,9 +88,11 @@ function CreateRecipe() {
     });
     setTitle('');
     setReadyInMinutes(0);
+    setServes(1);
     setIngredients('');
     setInstructions('');
     setImg('');
+    history.replace('/my-recipes');
   };
 
   return (
@@ -109,6 +123,21 @@ function CreateRecipe() {
             onChange={(e) => setReadyInMinutes(e.target.value)}
           />
           {!readyInMinutesIsValid && (
+            <p className='error-message'>
+              Time of preparation must be more than 0 minutes.
+            </p>
+          )}
+          <input
+            type='number'
+            min='0'
+            name='serves'
+            id='serves'
+            className={servesInputClasses}
+            value={serves}
+            placeholder='How many people it feeds'
+            onChange={(e) => setServes(e.target.value)}
+          />
+          {!servesIsValid && (
             <p className='error-message'>
               Time of preparation must be more than 0 minutes.
             </p>

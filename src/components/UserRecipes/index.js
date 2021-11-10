@@ -26,21 +26,40 @@ const UserRecipes = () => {
       <div className='my-recipes'>
         <h1>My Recipes</h1>
         <div>
+          {console.log(
+            recipes.sort((a, b) => (a.createdAt < b.createdAt && 1) || -1)
+          )}
           {recipes.map((recipe) => (
-            <div key={recipe.id}>
-              <div>{recipe.title}</div>
-              {console.log(recipe.img)}
-              <img src={recipe.image} alt={recipe.title} />
-              <div>{recipe.readyInMinutes}</div>
-              <div>
-                {recipe.ingredients
-                  .split(',')
-                  .map((x) => x.trim())
-                  .map((ingredient) => (
-                    <div key={ingredient.id}>{ingredient}</div>
-                  ))}
+            <div className='recipe-detail' key={recipe.id}>
+              <img
+                className='img-detail'
+                src={recipe.image}
+                alt={recipe.title}
+              />
+              <h1>{recipe.title}</h1>
+              <div className='flex-container'>
+                <div>
+                  <span>Serves:</span> {recipe.servings}
+                </div>
+                <div>
+                  <span>Preparation Time:</span> {recipe.readyInMinutes} minutes
+                </div>
               </div>
-              <div>{recipe.instructions}</div>
+              <div className='ingredients-instructions'>
+                <div>
+                  <h2> Ingredients </h2>
+                  <ul>
+                    {recipe.ingredients
+                      .split(',')
+                      .map((x) => x.trim())
+                      .map((ingredient) => (
+                        <li key={ingredient.id}>{ingredient}</li>
+                      ))}
+                  </ul>
+                  <h2> Instructions </h2>
+                  <div>{recipe.instructions}</div>
+                </div>
+              </div>
             </div>
           ))}
         </div>

@@ -37,7 +37,7 @@ const Register = () => {
 
   return (
     <div className='auth-form'>
-      <div className='form-input'>
+      <div className='form-input-auth'>
         <input
           type='email'
           placeholder='Email...'
@@ -46,7 +46,7 @@ const Register = () => {
           }}
         />
       </div>
-      <div className='form-input'>
+      <div className='form-input-auth'>
         <input
           type='password'
           placeholder='Password...'
