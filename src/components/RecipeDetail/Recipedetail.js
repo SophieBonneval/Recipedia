@@ -3,10 +3,15 @@ import { useParams } from 'react-router-dom';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { auth, db } from '../../firebase-config';
 import RecipeDisplay from '../RecipeDisplay/RecipeDisplay';
+import { onAuthStateChanged} from 'firebase/auth';
 
 function RecipeDetail() {
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
+  const [user, setUser] = useState({});
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
 
   useEffect(() => {
     const url = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${process.env.REACT_APP_API_KEY}&includeNutrition=false`;
@@ -43,10 +48,10 @@ function RecipeDetail() {
       <div>
 
         <RecipeDisplay recipe={recipe}/>
-          <button
+        {user ? <button
             onClick={handleSubmit}>
             Add to favourites
-          </button>
+          </button> : ''}
       </div>
     )
 

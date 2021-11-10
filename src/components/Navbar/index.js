@@ -11,9 +11,11 @@ import {
 } from './NavbarElements';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from '../../firebase-config';
+import { useHistory } from 'react-router';
 
 const Navbar = () => {
   const [user, setUser] = useState({});
+  const history = useHistory();
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
@@ -21,6 +23,7 @@ const Navbar = () => {
 
   const logout = async () => {
     await signOut(auth);
+    history.replace('/');
   };
 
   // <div>
