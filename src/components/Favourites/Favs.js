@@ -1,13 +1,25 @@
-import React, {useState, useEffect} from 'react'
-import { collection, query, onSnapshot, where, deleteDoc, doc } from "firebase/firestore";
+import React, { useState, useEffect } from 'react';
+import './Favs.css';
+import {
+  collection,
+  query,
+  onSnapshot,
+  where,
+  deleteDoc,
+  doc,
+} from 'firebase/firestore';
 import { auth, db } from '../../firebase-config';
+import { FaTrashAlt } from 'react-icons/fa';
+import { FaHeart } from 'react-icons/fa';
 
 const Favs = () => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    // console.log(auth.currentUser.uid)
-    const q = query(collection(db, "favourites"), where('uid', '==', auth.currentUser.uid));
+    const q = query(
+      collection(db, 'favourites'),
+      where('uid', '==', auth.currentUser.uid)
+    );
     const unsub = onSnapshot(q, (querySnapshot) => {
       let recipesArray = [];
       querySnapshot.forEach((doc) => {
@@ -19,26 +31,37 @@ const Favs = () => {
   }, []);
 
   const removeFavourite = async (id) => {
-    const userDoc = doc(db, "favourites", id);
+    const userDoc = doc(db, 'favourites', id);
     await deleteDoc(userDoc);
-  }
+  };
 
   return (
-    <div>
-      {recipes.map((recipe) => (
-        <div key={recipe.id} href={recipe.url}>
-          <a href={recipe.url}>{ recipe.title} </a>
-          <button onClick={() => {
-            removeFavourite(recipe.id);
-          }}>
-            {" "}
-            Remove recipe
-          </button>
-          
-        </div>
-      ))}
+    <div className='favorites-container'>
+      <div className='my-favorites'>
+        <h1>My Favorites</h1>
+        {console.log(recipes)}
+        {recipes.map((recipe) => (
+          <a key={recipe.id} href={recipe.url}>
+            <div className='favorited-recipe' href={recipe.url}>
+              <div className='favorite-title'>
+                <FaHeart className='fav-heart' />
+                <div>{recipe.title}</div>
+              </div>
+              <button
+                onClick={() => {
+                  removeFavourite(recipe.id);
+                }}
+              >
+                <FaTrashAlt className='icon-trash' />
+              </button>
+            </div>
+          </a>
+        ))}
+      </div>
     </div>
   );
-}
+};
 
-export default Favs
+export default Favs;
+
+//<img src={recipe.image} alt={recipe.title} />

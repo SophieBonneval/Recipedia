@@ -1,0 +1,74 @@
+.favorites-container {
+  margin: 0 1rem;
+}
+
+.my-favorites {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.my-favorites h1 {
+  margin: 1rem 0 2rem;
+}
+
+.my-favorites a {
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s ease-in-out;
+  padding: 2rem;
+  border-radius: 6px;
+  box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+  width: 100%;
+  border: 1px solid rgb(218, 218, 218);
+  margin-bottom: 1rem;
+}
+
+.my-favorites a:hover button {
+  background-color: #ececec;
+}
+
+.my-favorites a:hover .fav-heart {
+  color: red;
+}
+
+.my-favorites a:hover {
+  text-decoration: none;
+  color: #000;
+  background-color: #ececec;
+}
+
+.favorited-recipe {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.favorited-recipe button {
+  border-radius: 4px;
+  color: #333;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  background-color: #fff;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.favorited-recipe button:hover {
+  text-decoration: none;
+  color: #000;
+  background-color: #ececec;
+}
+
+.favorite-title {
+  display: flex;
+  align-items: center;
+}
+
+.fav-heart {
+  transition: all 0.5s ease-in-out;
+  font-size: 1.6rem;
+  margin-right: 1rem;
+}

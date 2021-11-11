@@ -36,7 +36,7 @@ const AllRecipes = () => {
 
   return (
     <div className='search-container'>
-      <h1 className='search-title'>Users recipes</h1>
+      {sortedRecipes ? <h1 className='search-title'>Users recipes</h1> : ''}
       <div className='row'>
         <div className='col'>
           {sortedRecipes.map((recipe) => (
