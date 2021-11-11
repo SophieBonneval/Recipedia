@@ -3,7 +3,7 @@ import { NavLink as Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 
 export const Nav = styled.nav`
-  background-color: #393939;
+  background-color: var(--palette4);
   height: 80px;
   display: flex;
   justify-content: space-between;
@@ -12,16 +12,17 @@ export const Nav = styled.nav`
 `;
 
 export const NavLink = styled(Link)`
-  color: #fff;
+  color: var(--white);
   display: flex;
   align-items: center;
   text-decoration: none;
   padding: 0 1rem;
   height: 100%;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 
   &:hover {
-    color: #d1d1d1;
+    color: var(--palette2);
   }
 `;
 
@@ -36,7 +37,7 @@ export const MobileIcon = styled.div`
     transform: translate(-100%, 60%);
     font-size: 1.8rem;
     cursor: pointer;
-    color: #fff;
+    color: var(--white);
   }
 `;
 
@@ -76,35 +77,36 @@ export const NavBtn = styled.nav`
 
 export const NavBtnLink = styled(Link)`
   border-radius: 4px;
-  background: #d1d1d1;
+  background: var(--palette1);
   padding: 10px 22px;
-  color: #fff;
+  color: var(--white);
   outline: none;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
   text-decoration: none;
 
   &:hover {
-    transition: all 0.2s ease-in-out;
-    background: #fff;
-    color: #d1d1d1;
+    transition: all 0.3s ease-in-out;
+    background: var(--palette1-dark);
+    color: var(--white);
   }
 `;
 
 export const NavBtnNormal = styled.button`
   border-radius: 4px;
-  background: #d1d1d1;
+  background: var(--palette1);
   padding: 10px 22px;
-  color: #fff;
+  color: var(--white);
   outline: none;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
   text-decoration: none;
   border: none;
+  font-size: 1rem;
 
   &:hover {
-    transition: all 0.2s ease-in-out;
-    background: #fff;
-    color: #d1d1d1;
+    transition: all 0.3s ease-in-out;
+    background: var(--palette1-dark);
+    color: var(--white);
   }
 `;

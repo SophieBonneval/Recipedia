@@ -1,6 +1,6 @@
 footer {
-  background-color: #393939;
-  color: #fff;
+  background-color: var(--palette4);
+  color: var(--white);
   height: 60px;
   padding: 0.5rem calc((100vw - 1000px) / 2);
   z-index: 10;
@@ -9,13 +9,14 @@ footer {
 }
 
 footer a {
-  color: #fff;
+  color: var(--white);
   text-decoration: none;
   font-weight: bold;
+  transition: all 0.3s ease-in-out;
 }
 
 footer a:hover {
-  color: #d1d1d1;
+  color: var(--palette2);
 }
 
 footer p {
@@ -25,5 +26,5 @@ footer p {
 .heart-footer {
   margin: 0 6px 0;
   font-size: 1.4em;
-  color: #ee3737;
+  color: var(--palette1-saturated);
 }

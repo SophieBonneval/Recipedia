@@ -16,11 +16,11 @@ function UserRecipeDetail() {
     getUserRecipe();
   }, []);
 
-if (recipe !== null) {
-  return (
-    <div className='container'>
-      <div className='my-recipes'>
-        <div>
+  if (recipe !== null) {
+    return (
+      <div className='container'>
+        <div className='my-recipes'>
+          <div>
             <div className='recipe-detail' key={recipe.id}>
               <img
                 className='img-detail'
@@ -48,19 +48,24 @@ if (recipe !== null) {
                       ))}
                   </ul>
                   <h2> Instructions </h2>
-                  <div>{recipe.instructions}</div>
+                  <ol>
+                    {recipe.instructions
+                      .split('|')
+                      .map((step) => step.trim())
+                      .map((step) => (
+                        <li key={step.id}>{step}</li>
+                      ))}
+                  </ol>{' '}
                 </div>
               </div>
             </div>
-        
+          </div>
         </div>
       </div>
-    </div>
-  )
-} else {
-  return <div></div>;
-}
+    );
+  } else {
+    return <div></div>;
+  }
 }
 
-
-export default UserRecipeDetail
+export default UserRecipeDetail;

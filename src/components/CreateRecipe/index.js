@@ -162,7 +162,7 @@ function CreateRecipe() {
             rows='4'
             cols='50'
             value={instructions}
-            placeholder='Cooking instructions'
+            placeholder='Cooking instructions with steps separated by a pipe (i.e. Step 1 | Step 2 | Step 3)'
             onChange={(e) => setInstructions(e.target.value)}
           />
           {!instructionsIsValid && (

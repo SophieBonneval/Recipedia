@@ -51,13 +51,20 @@ const UserRecipes = () => {
                   <ul>
                     {recipe.ingredients
                       .split(',')
-                      .map((x) => x.trim())
+                      .map((ingredient) => ingredient.trim())
                       .map((ingredient) => (
                         <li key={ingredient.id}>{ingredient}</li>
                       ))}
                   </ul>
                   <h2> Instructions </h2>
-                  <div>{recipe.instructions}</div>
+                  <ol>
+                    {recipe.instructions
+                      .split('|')
+                      .map((step) => step.trim())
+                      .map((step) => (
+                        <li key={step.id}>{step}</li>
+                      ))}
+                  </ol>
                 </div>
               </div>
             </div>

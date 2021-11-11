@@ -4,7 +4,7 @@ import './RecipeDisplay.css';
 
 function RecipeDisplay({ recipe }) {
   return (
-    <div className='recipe-detail'>
+    <div className='recipe-detail-api'>
       <img className='img-detail' src={recipe.image} alt={recipe.title} />
       <h1>{recipe.title}</h1>
       <div className='flex-container'>

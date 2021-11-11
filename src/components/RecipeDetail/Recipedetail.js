@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './Recipedetail.css';
 import { useParams } from 'react-router-dom';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { auth, db } from '../../firebase-config';
@@ -50,19 +51,23 @@ function RecipeDetail() {
     return (
       <div>
         <RecipeDisplay recipe={recipe} />
-        <i className='far fa-heart'></i>
-        <i className='fas fa-heart'></i>
         {user ? (
-          <button
-            style={{ background: color, color: textColor }}
-            onClick={() => {
-              handleSubmit();
-              setColor('blue');
-              setTextColor('black'), setText('Added to favourites');
-            }}
-          >
-            {text}
-          </button>
+          <div className='fav-btn-container'>
+            <button
+              className='add-button'
+              style={{ background: color, color: textColor }}
+              onClick={() => {
+                handleSubmit();
+
+                setColor('#efddc5');
+
+                setTextColor('black'), setText('Added to favourites');
+              }}
+            >
+              <i className='fas fa-heart fav-icon-btn'></i>
+              {text}
+            </button>
+          </div>
         ) : (
           ''
         )}
