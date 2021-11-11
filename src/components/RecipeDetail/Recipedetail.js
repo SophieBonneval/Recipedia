@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import "./Recipedetail.css"
 import { useParams } from 'react-router-dom';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { auth, db } from '../../firebase-config';
@@ -10,8 +11,8 @@ function RecipeDetail() {
   const [recipe, setRecipe] = useState(null);
   const [user, setUser] = useState({});
   const [text, setText] = useState('Add to favourites');
-  const [color, setColor] = useState('green');
-  const [textColor, setTextColor] = useState('white');
+  const [color, setColor] = useState('');
+  const [textColor, setTextColor] = useState('black');
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
@@ -50,21 +51,22 @@ function RecipeDetail() {
     return (
       <div>
         <RecipeDisplay recipe={recipe} />
-        <i className='far fa-heart'></i>
-        <i className='fas fa-heart'></i>
+        {/* <i className="far fa-heart"></i>
+        <i className="fas fa-heart"></i> */}
         {user ? (
           <button
+            className="add-button"
             style={{ background: color, color: textColor }}
             onClick={() => {
               handleSubmit();
-              setColor('blue');
-              setTextColor('black'), setText('Added to favourites');
+              setColor("#efddc5");
+              setTextColor("black"), setText("Added to favourites");
             }}
           >
             {text}
           </button>
         ) : (
-          ''
+          ""
         )}
       </div>
     );

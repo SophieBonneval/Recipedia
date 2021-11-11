@@ -1,0 +1,12 @@
+.add-button{
+  padding: 10px;
+  margin: 14px 0 0;
+  margin-left: 100px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}

@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import "./Favs.css";
 import { collection, query, onSnapshot, where, deleteDoc, doc } from "firebase/firestore";
 import { auth, db } from '../../firebase-config';
 
@@ -24,17 +25,22 @@ const Favs = () => {
   }
 
   return (
-    <div>
+    <div className="favourite-recipes">
+      <h1 className="title">My Favourites</h1>
       {recipes.map((recipe) => (
         <div key={recipe.id} href={recipe.url}>
-          <a href={recipe.url}>{ recipe.title} </a>
-          <button onClick={() => {
-            removeFavourite(recipe.id);
-          }}>
-            {" "}
-            Remove recipe
-          </button>
-          
+          <a className="recipe-name" href={recipe.url}>{recipe.title} </a>
+        <ol>
+        <button
+          className="delete-button"
+          onClick={() => {
+          removeFavourite(recipe.id);
+          }}
+        >
+        {" "}
+          Delete
+        </button>
+        </ol>
         </div>
       ))}
     </div>
