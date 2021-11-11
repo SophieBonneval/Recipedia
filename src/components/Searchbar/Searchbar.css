@@ -3,6 +3,7 @@
   margin-right: calc(-0.5 * var(--bs-gutter-x));
   margin-left: calc(-0.5 * var(--bs-gutter-x));
   width: 100%;
+  margin-top: 2rem;
 }
 
 .col {
@@ -16,7 +17,7 @@
 .search-area {
   display: flex;
   justify-content: center;
-  margin: 32px auto;
+  margin: 2rem auto 0;
   max-width: 800px;
 }
 
@@ -25,7 +26,7 @@
   border: 1px solid var(--grey2-field);
   border-radius: 4px;
   outline: none;
-  margin: 0 10px 0 0;
+  margin: 0 1rem 0 0;
   flex: 1 0 70%;
   font-size: 16px;
 }

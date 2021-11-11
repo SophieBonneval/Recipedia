@@ -30,7 +30,7 @@ function RecipeDisplay({ recipe }) {
             ))}
         </ol>
         <a href={recipe.sourceUrl} target='_blank' rel='noopener noreferrer'>
-          link to original recipe
+          Link to original recipe
         </a>
       </div>
     </div>

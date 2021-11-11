@@ -27,10 +27,6 @@
   cursor: pointer;
 }
 
-.favorited-recipe-container:hover button {
-  background-color: var(--grey1);
-}
-
 .favorited-recipe-container:hover .fav-heart {
   color: var(--palette1-saturated);
 }
@@ -61,7 +57,6 @@
 .favorited-recipe-container button:hover {
   text-decoration: none;
   color: var(--black);
-  background-color: var(--grey1);
 }
 
 .favorite-title {

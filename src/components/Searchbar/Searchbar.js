@@ -26,7 +26,11 @@ function Searchbar() {
   return (
     <div className='search-container'>
       <div className='search-area'>
-        <input type='text' placeholder='Search Recipes' onChange={handleChange} />
+        <input
+          type='text'
+          placeholder='Search Recipes'
+          onChange={handleChange}
+        />
         <button onClick={fetchData}>Search</button>
       </div>
       <div className='row'>

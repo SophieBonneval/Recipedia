@@ -63,3 +63,8 @@
 .ingredients-instructions ol {
   margin-bottom: 1rem;
 }
+
+.ingredients-instructions a {
+  color: var(--palette1);
+  text-decoration: none;
+}
