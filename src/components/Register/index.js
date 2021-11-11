@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../firebase-config';
+import { auth, db } from '../../firebase-config';
 import { useHistory } from 'react-router';
+import { setDoc, doc, Timestamp } from "firebase/firestore";
 
 const Register = () => {
   const [registerEmail, setRegisterEmail] = useState('');
@@ -18,6 +19,11 @@ const Register = () => {
       );
       history.replace('/');
       console.log(user);
+      await setDoc(doc(db, "users", user.user.uid), {
+        uid: user.user.uid,
+        registerEmail,
+        createdAt: Timestamp.fromDate(new Date()),
+      });
     } catch (e) {
       switch (e.code) {
         case 'auth/invalid-email':
