@@ -16,21 +16,51 @@ function UserRecipeDetail() {
     getUserRecipe();
   }, []);
 
-//   const docRef = doc(db, "cities", "SF");
-// const docSnap = await getDoc(docRef);
-
-// if (docSnap.exists()) {
-//   console.log("Document data:", docSnap.data());
-// } else {
-//   // doc.data() will be undefined in this case
-//   console.log("No such document!");
-// }
-
+if (recipe !== null) {
   return (
-    <div>
-      {console.log(recipe)}
+    <div className='container'>
+      <div className='my-recipes'>
+        <div>
+            <div className='recipe-detail' key={recipe.id}>
+              <img
+                className='img-detail'
+                src={recipe.image}
+                alt={recipe.title}
+              />
+              <h1>{recipe.title}</h1>
+              <div className='flex-container'>
+                <div>
+                  <span>Serves:</span> {recipe.serves}
+                </div>
+                <div>
+                  <span>Preparation Time:</span> {recipe.readyInMinutes} minutes
+                </div>
+              </div>
+              <div className='ingredients-instructions'>
+                <div>
+                  <h2> Ingredients </h2>
+                  <ul>
+                    {recipe.ingredients
+                      .split(',')
+                      .map((x) => x.trim())
+                      .map((ingredient) => (
+                        <li key={ingredient.id}>{ingredient}</li>
+                      ))}
+                  </ul>
+                  <h2> Instructions </h2>
+                  <div>{recipe.instructions}</div>
+                </div>
+              </div>
+            </div>
+        
+        </div>
+      </div>
     </div>
   )
+} else {
+  return <div></div>;
 }
+}
+
 
 export default UserRecipeDetail
