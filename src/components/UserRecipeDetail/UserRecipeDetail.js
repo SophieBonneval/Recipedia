@@ -1,49 +1,59 @@
-import React, { useState, useEffect } from 'react';
-import { collection, query, onSnapshot } from 'firebase/firestore';
-import { db } from '../../firebase-config';
-import UserRecipeDisplay from '../UserRecipeDisplay/UserRecipeDisplay';
+// import React, { useState, useEffect } from 'react';
+// // import { collection, query, onSnapshot } from 'firebase/firestore';
+// import { db } from '../../firebase-config';
 
 
-const UserRecipeDetail = () => {
-  const [recipes, setRecipes] = useState([]);
+// const UserRecipeDetail = () => {
+//   import { doc, getDoc } from "firebase/firestore";
 
-  useEffect(() => {
-    const q = query(
-      collection(db, 'recipes')
-    );
-    const unsub = onSnapshot(q, (querySnapshot) => {
-      let recipesArray = [];
-      querySnapshot.forEach((doc) => {
-        recipesArray.push({ ...doc.data(), id: doc.id });
-      });
-      setRecipes(recipesArray);
-    });
-    return () => unsub();
-  }, []);
+//   const docRef = doc(db, "cities", "SF");
+//   const docSnap = await getDoc(docRef);
+  
+//   if (docSnap.exists()) {
+//     console.log("Document data:", docSnap.data());
+//   } else {
+//     // doc.data() will be undefined in this case
+//     console.log("No such document!");
+//   }
+// };
 
-  if (recipes !== null) {
-    return (
-      <div>
-        <UserRecipeDisplay recipe={recipes} />
-        {user ? (
-          <button
-            style={{background:color,color:textColor}}
-            onClick={() => {
-              handleSubmit();
-              setColor("blue");setTextColor('black'),setText("Added to favourites")
-            }}
-          >
-            { text }
-          </button>
-        ) : (
-          ""
-        )}
-      </div>
-    );
+import React from 'react'
 
-    } else {
-      return <div></div>;
-    }
-};
+function UserRecipeDetail() {
+  return (
+    <div>
+      
+    </div>
+  )
+}
 
-export default UserRecipeDetail;
+export default UserRecipeDetail
+
+
+
+
+
+
+
+
+
+
+  // const [recipes, setRecipes] = useState([]);
+
+  // useEffect(() => {
+  //   const q = query(
+  //     collection(db, 'recipes')
+  //   );
+  //   const unsub = onSnapshot(q, (querySnapshot) => {
+  //     let recipesArray = [];
+  //     querySnapshot.forEach((doc) => {
+  //       recipesArray.push({ ...doc.data(), id: doc.id });
+  //     });
+  //     setRecipes(recipesArray);
+  //   });
+  //   return () => unsub();
+  // }, []);
+
+  
+
+

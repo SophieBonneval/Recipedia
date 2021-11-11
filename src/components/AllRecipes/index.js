@@ -40,7 +40,7 @@ const AllRecipes = () => {
         <div className='row'>
           <div className='col'>
             {recipes.map((recipe) => (
-            <NavLink key={recipe.id} to={`/recipe/${recipe.id}`}>
+            <NavLink key={recipe.id} to={`/recipes/${recipe.id}`}>
             <div className='card'>
               <div className='card-image'>
               <img src={recipe.image} alt={recipe.title} />
