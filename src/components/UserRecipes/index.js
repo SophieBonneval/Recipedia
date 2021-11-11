@@ -39,7 +39,7 @@ const UserRecipes = () => {
               <h1>{recipe.title}</h1>
               <div className='flex-container'>
                 <div>
-                  <span>Serves:</span> {recipe.servings}
+                  <span>Serves:</span> {recipe.serves}
                 </div>
                 <div>
                   <span>Preparation Time:</span> {recipe.readyInMinutes} minutes
