@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './UserRecipedetail.css';
 import { useParams } from 'react-router-dom';
 import { getDoc, doc } from 'firebase/firestore';
 import { db } from '../../firebase-config';
@@ -18,8 +19,8 @@ function UserRecipeDetail() {
 
   if (recipe !== null) {
     return (
-      <div className='container'>
-        <div className='my-recipes'>
+      <div className='user-recipe-container'>
+        <div className='user-my-recipes'>
           <div>
             <div className='recipe-detail' key={recipe.id}>
               <img

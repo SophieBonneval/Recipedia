@@ -12,54 +12,56 @@
   margin: 1rem 0 2rem;
 }
 
-.my-favorites a {
-  text-decoration: none;
-  color: #333;
-  transition: all 0.3s ease-in-out;
+.favorited-recipe-container {
+  transition: var(--transition);
   padding: 2rem;
   border-radius: 6px;
   box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
   width: 100%;
-  border: 1px solid rgb(218, 218, 218);
+  border: 1px solid var(--grey2-field);
   margin-bottom: 1rem;
-}
-
-.my-favorites a:hover button {
-  background-color: #ececec;
-}
-
-.my-favorites a:hover .fav-heart {
-  color: red;
-}
-
-.my-favorites a:hover {
-  text-decoration: none;
-  color: #000;
-  background-color: #ececec;
-}
-
-.favorited-recipe {
+  background-color: var(--white);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 }
 
-.favorited-recipe button {
+.favorited-recipe-container:hover button {
+  background-color: var(--grey1);
+}
+
+.favorited-recipe-container:hover .fav-heart {
+  color: var(--palette1-saturated);
+}
+
+.favorited-recipe-container a {
+  text-decoration: none;
+  color: var(--grey5);
+}
+
+.favorited-recipe-container:hover {
+  color: var(--black);
+  box-shadow: 0 0.3rem 0.4rem rgb(0 0 0 / 20%);
+}
+
+.favorited-recipe-container button {
   border-radius: 4px;
-  color: #333;
+  color: var(--grey5);
   outline: none;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: var(--transition);
   text-decoration: none;
-  background-color: #fff;
+  background-color: var(--white);
   border: none;
   font-size: 1.2rem;
+  z-index: 100;
 }
 
-.favorited-recipe button:hover {
+.favorited-recipe-container button:hover {
   text-decoration: none;
-  color: #000;
-  background-color: #ececec;
+  color: var(--black);
+  background-color: var(--grey1);
 }
 
 .favorite-title {
@@ -68,7 +70,7 @@
 }
 
 .fav-heart {
-  transition: all 0.5s ease-in-out;
+  transition: var(--transition);
   font-size: 1.6rem;
   margin-right: 1rem;
 }

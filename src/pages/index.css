@@ -1,6 +1,7 @@
 .container {
-  margin: 20px 0;
-  min-height: calc(100vh - 180px);
+  padding: 20px 0;
+  min-height: calc(100vh - 140px);
+  background-color: var(--grey1);
 }
 
 .auth-container {
@@ -33,7 +34,7 @@
 .wrap-auth a {
   text-decoration: none;
   color: var(--palette1);
-  transition: all 0.3s ease-in-out;
+  transition: var(--transition);
 }
 
 .wrap-auth a:hover {
@@ -76,7 +77,7 @@
   border-radius: 5px;
   font-size: 1rem;
   margin-bottom: 1rem;
-  transition: all 0.3s ease-in-out;
+  transition: var(--transition);
 }
 
 .auth-form button:hover {

@@ -6,3 +6,31 @@
 .my-recipes h1 {
   margin-bottom: 2rem;
 }
+
+.recipe-detail {
+  text-align: center;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.recipe-detail h1 {
+  text-align: center;
+  position: absolute;
+  top: 0;
+  padding: 2rem 0;
+  width: 100%;
+  color: var(--black);
+  background-color: rgba(255, 255, 255, 0.7);
+  transition: var(--transition);
+}
+
+@media only screen and (max-width: 400px) {
+  .recipe-detail h1 {
+    font-size: 1.4rem;
+    padding: 1rem 0;
+  }
+}
+
+.recipe-detail h2 {
+  margin: 1.6rem 10px 0.6rem;
+}

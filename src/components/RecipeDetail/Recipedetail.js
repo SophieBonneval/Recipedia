@@ -11,8 +11,7 @@ function RecipeDetail() {
   const [recipe, setRecipe] = useState(null);
   const [user, setUser] = useState({});
   const [text, setText] = useState('Add to favourites');
-  const [color, setColor] = useState('green');
-  const [textColor, setTextColor] = useState('white');
+  const [color, setColor] = useState('var(--palette1)');
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
@@ -55,13 +54,13 @@ function RecipeDetail() {
           <div className='fav-btn-container'>
             <button
               className='add-button'
-              style={{ background: color, color: textColor }}
+              style={{ background: color }}
               onClick={() => {
                 handleSubmit();
 
-                setColor('#efddc5');
+                setColor('var(--palette1-dark)');
 
-                setTextColor('black'), setText('Added to favourites');
+                setText('Added to favourites');
               }}
             >
               <i className='fas fa-heart fav-icon-btn'></i>

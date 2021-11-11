@@ -9,6 +9,7 @@ export const Nav = styled.nav`
   justify-content: space-between;
   padding: 0.5rem calc((100vw - 1000px) / 2);
   z-index: 10;
+  box-shadow: 0 0.2rem 0.3rem rgb(0 0 0 / 15%);
 `;
 
 export const NavLink = styled(Link)`
@@ -19,7 +20,7 @@ export const NavLink = styled(Link)`
   padding: 0 1rem;
   height: 100%;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: var(--transition);
 
   &:hover {
     color: var(--palette2);
@@ -82,11 +83,11 @@ export const NavBtnLink = styled(Link)`
   color: var(--white);
   outline: none;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: var(--transition);
   text-decoration: none;
 
   &:hover {
-    transition: all 0.3s ease-in-out;
+    transition: var(--transition);
     background: var(--palette1-dark);
     color: var(--white);
   }
@@ -99,13 +100,13 @@ export const NavBtnNormal = styled.button`
   color: var(--white);
   outline: none;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: var(--transition);
   text-decoration: none;
   border: none;
   font-size: 1rem;
 
   &:hover {
-    transition: all 0.3s ease-in-out;
+    transition: var(--transition);
     background: var(--palette1-dark);
     color: var(--white);
   }

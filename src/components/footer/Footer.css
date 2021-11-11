@@ -12,7 +12,7 @@ footer a {
   color: var(--white);
   text-decoration: none;
   font-weight: bold;
-  transition: all 0.3s ease-in-out;
+  transition: var(--transition);
 }
 
 footer a:hover {

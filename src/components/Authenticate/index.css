@@ -1,7 +1,7 @@
 .error-notice {
   margin-top: 2rem;
-  background-color: #ff00002b;
-  color: #c90f0f;
+  background-color: rgba(255, 73, 73, 0.2);
+  color: var(--palette1-saturated);
   padding: 0.6rem;
   border-radius: 4px;
 }

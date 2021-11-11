@@ -35,7 +35,7 @@ const AllRecipes = () => {
   }, []);
 
   return (
-    <div className='search-container'>
+    <div className='search-container-user'>
       {sortedRecipes ? <h1 className='search-title'>Users recipes</h1> : ''}
       <div className='row'>
         <div className='col'>

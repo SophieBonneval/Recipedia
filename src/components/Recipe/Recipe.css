@@ -2,15 +2,16 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
+  background-color: var(--white);
   -webkit-background-clip: border-box;
-  background-clip: border-box;
-  border: 1px solid rgba(177, 174, 174, 0.125);
   border-radius: 0.25rem;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   height: 100%;
+  transition: var(--transition);
+}
+
+.card:hover {
+  box-shadow: 0 0.3rem 0.4rem rgb(0 0 0 / 20%);
 }
 
 .card-image {

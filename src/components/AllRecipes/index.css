@@ -1,3 +1,8 @@
+.search-container-user {
+  padding-bottom: 2rem;
+  margin: 0 1rem;
+}
+
 .my-recipes {
   text-align: center;
   margin: 1rem 10px;
@@ -12,48 +17,6 @@
   margin-right: calc(-0.5 * var(--bs-gutter-x));
   margin-left: calc(-0.5 * var(--bs-gutter-x));
   width: 100%;
-}
-
-.col {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  grid-gap: 10px;
-  background-color: #fff;
-  color: #444;
-  margin: 0 auto;
-  justify-content: center;
-}
-
-.row {
-  margin-top: calc(-1 * var(--bs-gutter-y));
-  margin-right: calc(-0.5 * var(--bs-gutter-x));
-  margin-left: calc(-0.5 * var(--bs-gutter-x));
-  width: 100%;
-}
-
-.col {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  grid-gap: 10px;
-  background-color: #fff;
-  color: #444;
-  margin: 0 auto;
-  justify-content: center;
-}
-
-.card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
-  -webkit-background-clip: border-box;
-  background-clip: border-box;
-  border: 1px solid rgba(177, 174, 174, 0.125);
-  border-radius: 0.25rem;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-  height: 100%;
 }
 
 .card-image {
@@ -82,5 +45,5 @@
 }
 
 .search-title {
-  margin: 3rem auto 2rem;
+  margin: 2rem auto;
 }

@@ -45,7 +45,7 @@ const Navbar = () => {
         <NavMenu>
           {user ? <NavLink to='/recipe-new'>Add recipe</NavLink> : ''}
           {user ? <NavLink to='/my-recipes'>My recipes</NavLink> : ''}
-          {user ? <NavLink to='/favourites'>Favourites</NavLink> : ''}
+          {user ? <NavLink to='/favourites'>My favourites</NavLink> : ''}
         </NavMenu>
         <NavBtn>
           {user ? (

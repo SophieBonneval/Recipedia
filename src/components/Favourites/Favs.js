@@ -41,21 +41,24 @@ const Favs = () => {
         <h1>My Favorites</h1>
         {console.log(recipes)}
         {recipes.map((recipe) => (
-          <a key={recipe.id} href={recipe.url}>
-            <div className='favorited-recipe' href={recipe.url}>
-              <div className='favorite-title'>
-                <FaHeart className='fav-heart' />
-                <div>{recipe.title}</div>
+          <div key={recipe.id} className='favorited-recipe-container'>
+            <a href={recipe.url} target='_blank' rel='noopener noreferrer'>
+              <div className='favorited-recipe' href={recipe.url}>
+                <div className='favorite-title'>
+                  <FaHeart className='fav-heart' />
+                  <div>{recipe.title}</div>
+                </div>
               </div>
-              <button
-                onClick={() => {
-                  removeFavourite(recipe.id);
-                }}
-              >
-                <FaTrashAlt className='icon-trash' />
-              </button>
-            </div>
-          </a>
+            </a>
+
+            <button
+              onClick={() => {
+                removeFavourite(recipe.id);
+              }}
+            >
+              <FaTrashAlt className='icon-trash' />
+            </button>
+          </div>
         ))}
       </div>
     </div>
