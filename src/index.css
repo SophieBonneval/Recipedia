@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+  --palette1: rgba(231,102,102);
+  --palette2: rgba(240,213,130);
+  --palette3: rgba(229,164,120);
+  --palette4: rgb(94,78,78);
+  --palette5: rgb(97,98,101);
+  --footer-gray: #393939;
+  --searchbutton-gray: #d1d1d1;
+  --navBar-black: #393939;
+  --RecipediaText-white: #fff;
+  --hover-width: 75%;
+  --other-width: 25%;
+  --speed: 1000ms;
+}
