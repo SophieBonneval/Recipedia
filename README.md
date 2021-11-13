@@ -2,6 +2,10 @@
 
 Recipedia is an app to help food lovers search for recipes, add recipes to their favourites list and with the inspiration of browsing recipes they can create their own recipes.
 
+## App Direct Link
+
+[App live on Firebase](https://recipedia-cbe2c.web.app/)
+
 ## User stories
 
 ```
